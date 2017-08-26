@@ -11,7 +11,8 @@
   </head>
   <body>
     <h1>La Pizzería</h1>
-    <p>Esta es una plantilla base para WordPress</p>
+    <h3>index.php</h3>
+    <p>Esta es una plantilla base para WordPress desde <b>index.php</b></p>
     <hr />
      <?php
      /* Loop de WordPress
