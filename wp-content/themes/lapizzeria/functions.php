@@ -9,12 +9,19 @@
   function lapizzeria_styles() {
     /* Registra las funciones en el Core de Wordpress */
     wp_register_style(
+      'normalize',                                  # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/css/normalize.css',  # Ruta del fichero en el directorio CSS de la plantilla
+      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '7.0.0'
+    );
+    wp_register_style(
       'style',                                      # Nombre que toma la función registrada en el Core de Wordpress
       get_template_directory_uri() . '/style.css',  # Ruta del fichero en el directorio CSS de la plantilla
-      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
       '1.0'                                         # Versión de la hoja de estilos
     );
     /* Agregamos el  estilo registrado */
+    wp_enqueue_style( 'normalize' );
     wp_enqueue_style( 'style' );
   }
 
