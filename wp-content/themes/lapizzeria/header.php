@@ -23,8 +23,8 @@
               $args = array(
                 'theme_location'  => 'social-media-menu',
                 'container'       => 'nav', # Etiqueta que lo contendrá (puede ser cualquiera)
-                'container-class' => 'social-menu', # Clase de la etiqueta que lo contendrá
-                'container-class' => 'social-menu', # ID de la etiqueta que lo contendrá
+                'container_class' => 'social-menu', # Clase de la etiqueta que lo contendrá
+                'container_id'    => 'social-menu', # ID de la etiqueta que lo contendrá
                 'link_before'     => '<span class="sr-text">',
                 'link_after'      => '</span>'
               );

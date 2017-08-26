@@ -29,10 +29,12 @@ html {
   margin: 0 auto;
 }
 
-/* Header Site */
+/* Header Site
+ * ------------ */
 header.site-header {
   /* Mobile */
   border-bottom: 1px solid #C1C1C1;
+  padding-bottom: 30px;
 }
 
 div.logo {
@@ -66,6 +68,28 @@ img.site-logo {
   }
 }
 
+div.address {
+  /* Mobile */
+  display: block;
+  clear: both;
+  padding-top: 10px;
+}
+
+div.address p {
+  /* Mobile */
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media only screen and ( min-width: 768px ) {
+  /* Tablet */
+
+  div.address p {
+    text-align: right;
+  }
+}
+
 @media only screen and ( min-width: 992px ) {
   /* Desktop */
 
@@ -74,4 +98,61 @@ img.site-logo {
   }
   /* Header Information */
 
+}
+
+/* Site Social Networking Menu
+ * ------------ */
+nav.social-menu ul {
+  /* Mobile */
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+@media only screen and ( min-width: 768px ) {
+  /* Tablet */
+  nav.social-menu ul {
+    float: right;
+  }
+}
+
+.sr-text {
+  display: none;
+}
+
+nav.social-menu ul li {
+  position: relative;
+  display: inline-block;
+}
+
+nav.social-menu ul li a:before {
+  /* Crea un seudo-elemento antes del tag a */
+  font-family: 'FontAwesome';
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 5px;
+  content: '\f08e';   /* Código del ícono*/
+  font-size: 30px;
+  color: black;
+  --webkit-font-smoothing: antialiased;
+}
+
+nav.social-menu ul li a[ href *= "facebook.com" ]::before {
+  content: '\f09a';      /* Agrega icono de Facebook */
+}
+
+nav.social-menu ul li a[ href *= "twitter.com" ]::before {
+  content: '\f099';      /* Agrega icono de Twitter */
+}
+
+nav.social-menu ul li a[ href *= "pinterest.com" ]::before {
+  content: '\f231';      /* Agrega icono de Pinterest */
+}
+
+nav.social-menu ul li a[ href *= "youtube.com" ]::before {
+  content: '\f16a';      /* Agrega icono de YouTube */
+}
+
+nav.social-menu ul li a[ href *= "instagram.com" ]::before {
+  content: '\f16d';      /* Agrega icono de Instagram */
 }
