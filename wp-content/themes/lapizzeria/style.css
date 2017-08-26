@@ -14,3 +14,48 @@ Text Domain: lapizerria
 body {
   background-color: pink;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;    /* No aseguramos que todos los elementos hereden esta regla que le hemos puesto a nuestro border box */
+}
+
+.content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header Site */
+header.site-header {
+  /* Mobile */
+  border-bottom: 1px solid #C1C1C1;
+}
+
+div.logo {
+  /* Mobile */
+  text-align: center;
+}
+
+img.site-logo {
+  /* Mobile */
+  width: 250px;
+}
+
+/* Mobile First: Siempre se usa min-width */
+@media only screen and ( min-width: 768px ) {
+  /* Tablet */
+  div.logo {
+    text-align: left;
+  }
+}
+
+@media only screen and ( min-width: 992px ) {
+  /* Desktop */
+  div.logo {
+    text-align: center;
+  }
+}
