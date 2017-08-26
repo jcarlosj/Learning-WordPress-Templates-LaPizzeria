@@ -48,14 +48,30 @@ img.site-logo {
 /* Mobile First: Siempre se usa min-width */
 @media only screen and ( min-width: 768px ) {
   /* Tablet */
+
   div.logo {
     text-align: left;
+  }
+  /* Header Information */
+  header.site-header .content {
+    position: relative;
+  }
+  .header-information {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  div.address p {
+    text-align: right;
   }
 }
 
 @media only screen and ( min-width: 992px ) {
   /* Desktop */
+
   div.logo {
     text-align: center;
   }
+  /* Header Information */
+
 }
