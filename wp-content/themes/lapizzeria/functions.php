@@ -15,6 +15,12 @@
       '7.0.0'
     );
     wp_register_style(
+      'fontawesome',                                # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/css/font-awesome.min.css',  # Ruta del fichero en el directorio CSS de la plantilla
+      array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '4.7.0'
+    );
+    wp_register_style(
       'style',                                      # Nombre que toma la función registrada en el Core de Wordpress
       get_template_directory_uri() . '/style.css',  # Ruta del fichero en el directorio CSS de la plantilla
       array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
@@ -22,6 +28,7 @@
     );
     /* Agregamos el  estilo registrado */
     wp_enqueue_style( 'normalize' );
+    wp_enqueue_style( 'fontawesome' );
     wp_enqueue_style( 'style' );
   }
 
