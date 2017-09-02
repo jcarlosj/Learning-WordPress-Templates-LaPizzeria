@@ -39,16 +39,14 @@
         </div>
       </div>  <!-- .content -->
     </header>
-    <nav class="site-menu">
-      <div class="content navigation">
-        <?php
-          $args = array(
-            'theme_location'  => 'header-menu',
-            'container'       => 'nav',         # Etiqueta que lo contendrá (puede ser cualquiera)
-            'container-class' => 'site-menu'    # Clase de la etiqueta que lo contendrá
-          );
+    <div class="content navigation">
+      <?php
+        $args = array(
+          'theme_location'  => 'header-menu',
+          'container'       => 'nav',         # Etiqueta que lo contendrá (puede ser cualquiera)
+          'container_class' => 'site-menu'    # Clase de la etiqueta que lo contendrá
+        );
 
-          wp_nav_menu( $args );
-        ?>
-      </div>
-    </nav>
+        wp_nav_menu( $args );
+      ?>
+    </div>

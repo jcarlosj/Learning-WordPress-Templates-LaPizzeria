@@ -8,11 +8,11 @@ Version: 1.0
 License: GNU General Public v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: mobile first, responsive web design, course, udemy, pizzería
-Text Domain: lapizerria
+Text Domain: lapizzeria
 ---------------------------------------- */
 
 body {
-  background-color: pink;
+  background-color: white;
 }
 
 html {
@@ -155,4 +155,40 @@ nav.social-menu ul li a[ href *= "youtube.com" ]::before {
 
 nav.social-menu ul li a[ href *= "instagram.com" ]::before {
   content: '\f16d';      /* Agrega icono de Instagram */
+}
+
+/* Main Site Menu
+ * ------------ */
+nav.site-menu ul {
+  list-style: none;
+  display: table;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+nav.site-menu ul li a {
+  text-align: center;
+  display: block;
+  padding: 20px 0;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+
+nav.site-menu ul li:hover {
+  background-color: #F19F30;
+}
+
+/* Usamos una de las clases de WordPress "current_page_item" */
+nav.site-menu ul li.current_page_item {
+  border-bottom: 8px solid #A61206;
+}
+
+@media only screen and ( min-width: 768px ) {
+  nav.site-menu ul li {
+    display: table-cell;
+    width: 1%;
+  }
 }
