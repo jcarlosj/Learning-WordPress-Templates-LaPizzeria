@@ -39,14 +39,21 @@
         </div>
       </div>  <!-- .content -->
     </header>
-    <div class="content navigation">
-      <?php
-        $args = array(
-          'theme_location'  => 'header-menu',
-          'container'       => 'nav',         # Etiqueta que lo contendrá (puede ser cualquiera)
-          'container_class' => 'site-menu'    # Clase de la etiqueta que lo contendrá
-        );
+    <div class="site-main-menu">
+      <div class="button-mobile-menu">
+        <a href="#" class="mobile">Menú
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </a>  
+      </div>
+      <div class="content navigation">
+        <?php
+          $args = array(
+            'theme_location'  => 'header-menu',
+            'container'       => 'nav',         # Etiqueta que lo contendrá (puede ser cualquiera)
+            'container_class' => 'site-menu'    # Clase de la etiqueta que lo contendrá
+          );
 
-        wp_nav_menu( $args );
-      ?>
+          wp_nav_menu( $args );
+        ?>
+      </div>
     </div>
