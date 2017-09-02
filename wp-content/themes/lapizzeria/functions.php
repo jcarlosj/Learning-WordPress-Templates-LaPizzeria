@@ -38,13 +38,18 @@
 
   function lapizzeria_scripts() {
     /* Registra los archivos de script (JavaScript) en el Core de Wordpress */
-    wp_enqueue_script(
+    wp_register_script(
       'scripts',                                    # Nombre que toma la función registrada en el Core de Wordpress
       get_template_directory_uri() . '/js/scripts.js',  # Ruta del fichero en el directorio JS de la plantilla
       array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
       '1.0.0',                                      # Versión del Script
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
     );
+    /* Agregamos el los ficheros script registrados */
+    wp_enqueue_script( 'jquery' );                  # Agregamos la versión de Bootstrap que trae WordPress
+                                                    # También puede hacerse de la forma tradicional descargando el fichero de bootstrap
+    wp_enqueue_script( 'scripts' );
+
   }
 
   /* Agrega las acciones creadas al Core de WordPress:
