@@ -36,6 +36,21 @@
      Ayuda a que estas sean reconocidas */
   add_action( 'wp_enqueue_scripts', 'lapizzeria_styles' );
 
+  function lapizzeria_scripts() {
+    /* Registra los archivos de script (JavaScript) en el Core de Wordpress */
+    wp_enqueue_script(
+      'scripts',                                    # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/js/scripts.js',  # Ruta del fichero en el directorio JS de la plantilla
+      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '1.0.0',                                      # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
+  }
+
+  /* Agrega las acciones creadas al Core de WordPress:
+     Ayuda a que estas sean reconocidas */
+  add_action( 'wp_enqueue_scripts', 'lapizzeria_scripts' );
+
   /* Agregamos la función que nos permitirá integrar los menues existentes en el tema */
   function lapizzeria_menues() {
     /* Registra los menues en el Core de Wordpress (Habilita el módulo de menues en el Backend Admin de WordPress) */
