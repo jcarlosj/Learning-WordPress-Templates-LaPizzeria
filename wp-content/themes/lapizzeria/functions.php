@@ -21,6 +21,12 @@
       '4.7.0'
     );
     wp_register_style(
+      'google_fonts',                                # Nombre que toma la función registrada en el Core de Wordpress
+      'https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700,900',  # Ruta del fichero en el directorio CSS de la plantilla
+      array(),                                       # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '1.0.0'
+    );
+    wp_register_style(
       'style',                                      # Nombre que toma la función registrada en el Core de Wordpress
       get_template_directory_uri() . '/style.css',  # Ruta del fichero en el directorio CSS de la plantilla
       array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
