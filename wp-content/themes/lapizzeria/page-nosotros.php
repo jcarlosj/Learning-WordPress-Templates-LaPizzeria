@@ -13,28 +13,41 @@
       <?php the_content();    # Template Tag: para imprimir el contenido de la página ?>
     </main>
   </div>
-  <div class="information-boxes content">
+  <div class="boxes-information content">
     <div class="box">
       <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
-      <img src="<?php the_field( 'imagen_1' ); ?>" alt="" />
+      <?php #Cambiamos desde el ADMIN de WordPress la forma como se desplegarán las imagenes en la vista a la opción "Image ID"
+        $image_id = get_field( 'imagen_1' );
+        $image    = wp_get_attachment_image_src( $image_id, 'nosotros' );  # ID de la imagen y nombre de la personalización
+      ?>
+      <pre> <?php var_dump( $image ); ?> </pre>
+      <img src="<?php echo $image[ 0 ]; ?>" class="box-image" />
       <div class="box-content">
         <?php the_field( 'descripcion_1' ); ?>
       </div>
-    </div>
+    </div>  <!-- .box #1 -->
     <div class="box">
-      <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
-      <img src="<?php the_field( 'imagen_2' ); ?>" alt="" />
+      <?php
+        $image_id = get_field( 'imagen_2' );
+        $image    = wp_get_attachment_image_src( $image_id, 'nosotros' );  # ID de la imagen y nombre de la personalización
+      ?>
+      <pre> <?php var_dump( $image ); ?> </pre>
+      <img src="<?php echo $image[ 0 ]; ?>" class="box-image" />
       <div class="box-content">
         <?php the_field( 'descripcion_2' ); ?>
       </div>
-    </div>
+    </div>  <!-- .box #2 -->
     <div class="box">
-      <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
-      <img src="<?php the_field( 'imagen_3' ); ?>" alt="" />
+      <?php
+        $image_id = get_field( 'imagen_3' );
+        $image    = wp_get_attachment_image_src( $image_id, 'nosotros' );  # ID de la imagen y nombre de la personalización
+      ?>
+      <pre> <?php var_dump( $image ); ?> </pre>
+      <img src="<?php echo $image[ 0 ]; ?>" class="box-image" />
       <div class="box-content">
         <?php the_field( 'descripcion_3' ); ?>
       </div>
-    </div>
+    </div>  <!-- .box #3 -->
   </div>
 <?php endwhile; ?>
 

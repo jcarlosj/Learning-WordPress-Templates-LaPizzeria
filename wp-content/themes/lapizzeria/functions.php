@@ -82,6 +82,19 @@
   */
   function lapizzeria_setup() {
     add_theme_support( 'post-thumbnails' );    # Habilitamos las imágenes destacadas
+
+    /* Personalizamos un nuevo tamaño de imagen para la página de nosotros adicional a los que
+       podemos encontrar en el ADMIN en la sección de Medios en Ajustes multimedia.
+       Si las imagenes ya han sido subidas estos cambios no se les van a aplicar, por lo que
+       hay que volver a subirlas o usar un plugin que las regenere automáticamente, en nuestro
+       caso haciendo uso del plugin "regenerate thumnails", muy util en la etapa de desarrollo
+    */
+    add_image_size(
+      'nosotros',   # Nombre del tamaño de imagen que hemos registrado
+      437,          # Alto de la imagen en pixeles
+      291,          # Ancho de la imagen en pixeles
+      true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
+    );
   }
 
   /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
