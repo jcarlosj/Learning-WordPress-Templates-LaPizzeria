@@ -70,4 +70,14 @@
 
   /* Agregamos el menú registrado en "init", que es cuando se ejecuta o inicializa WordPress */
   add_action( 'init', 'lapizzeria_menues' );
+
+  /* Agregamos soporte para imagenes destacadas:
+     Esta correrá después de que el tema ha sido instalada correctamente en nuestro WordPress
+  */
+  function lapizzeria_setup() {
+    add_theme_support( 'post-thumbnails' );    # Habilitamos las imágenes destacadas
+  }
+
+  /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
+  add_action( 'after_setup_theme', 'lapizzeria_setup' );
 ?>
