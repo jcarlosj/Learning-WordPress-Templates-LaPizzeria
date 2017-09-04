@@ -13,9 +13,29 @@
       <?php the_content();    # Template Tag: para imprimir el contenido de la página ?>
     </main>
   </div>
-
-  <h2>Detalles</h2>
-  <p>Agregaremos más detalles a la vista de nosotros. Para ello instalaremos el plugin <b>Advanced Custom Fields</b> y registraremos los campos que estarán disponibles en el ADMIN de WordPress para generar contenido en este espacio de la vista personalizada de nosotros <i>"page-<b>nosotros</b>.php"</i>. </p>
+  <div class="information-boxes content">
+    <div class="box">
+      <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
+      <img src="<?php the_field( 'imagen_1' ); ?>" alt="" />
+      <div class="box-content">
+        <?php the_field( 'descripcion_1' ); ?>
+      </div>
+    </div>
+    <div class="box">
+      <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
+      <img src="<?php the_field( 'imagen_2' ); ?>" alt="" />
+      <div class="box-content">
+        <?php the_field( 'descripcion_2' ); ?>
+      </div>
+    </div>
+    <div class="box">
+      <?php #Imprimimos los valores de los campos como lo indica el plugin AFE: Advanced Custom Fields ?>
+      <img src="<?php the_field( 'imagen_3' ); ?>" alt="" />
+      <div class="box-content">
+        <?php the_field( 'descripcion_3' ); ?>
+      </div>
+    </div>
+  </div>
 <?php endwhile; ?>
 
 <?php get_footer(); ?>
