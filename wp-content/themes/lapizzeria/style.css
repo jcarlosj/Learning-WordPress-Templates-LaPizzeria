@@ -357,9 +357,11 @@ div.principal {
  * ------------ */
 div.boxes-information > div {
   text-align: center;
+  width: 100%;
   color: white;
 }
 div.boxes-information > div img {
+  display: block;
   width: 100%;
 }
 div.boxes-information > div:nth-child( 1 ) {
@@ -383,7 +385,13 @@ div.box-content {
 div.box-content h3 {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 20px;
+}
+
+@media only screen and ( min-width: 992px ) {
+  div.box-content h3 {
+    font-size: 24px;
+  }
 }
 
 @media only screen and ( min-width: 480px ) {

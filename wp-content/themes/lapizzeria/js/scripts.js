@@ -12,6 +12,8 @@ $( document ) .ready( function() {
     /* Muestra u oculta el menú al redimensionar la ventana del navegador */
     var breakpoint = 768;
     $( window ) .resize( function() {
+      adjustBoxes();  /* Se ajustan cada que se hace un resize */
+
       /* console .log( $( document ) .width() + ' px'); */
       if( $( document ) .width() >= breakpoint ) {
         $( 'nav.site-menu' ) .show();
@@ -20,4 +22,24 @@ $( document ) .ready( function() {
         $( 'nav.site-menu' ) .hide();
       }
     });   // $( window )
+
+    /* Funci[on para ajustar las cajas] */
+    function adjustBoxes() {
+      /* Ajustar las cajas de información adicional de la página de nosotros */
+      var images = $( '.box-image' );   /* Obtenemos todas las imagenes del DOM */
+      /* console .log( images ); */
+
+      /* Validamos la existencia de las imagenes */
+      if( images .length > 0 ) {
+        var height_image = images[ 0 ] .height;  /* Capturamos la altura de una imagen, no importa cual */
+        var boxes = $( 'div.box-content' );     /* Obtenemos todas las Cajas del DOM */
+        /* console .log( boxes ); */
+
+        $( boxes ) .each( function( item, htmlElement ) {
+          $( htmlElement ) .css({
+            'height' : height_image + 'px'
+          });
+        });
+      }
+    }
 });   // $( document )
