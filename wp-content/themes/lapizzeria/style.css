@@ -33,6 +33,9 @@ h2 {
 h3 {
   font-size: 28px;
 }
+h3.title-specialties {
+  color: #A61206;
+}
 h4 {
   font-size: 24px;
 }
@@ -408,4 +411,32 @@ div.box-content h3 {
   div.boxes-information > div:last-child {
     width: 33.3%;
   }
+}
+
+/* Page: Menú (Especialidades)
+ * ------------ */
+.specialties {
+  padding: 0 60px;
+}
+
+div.specialty-text {
+  padding: 20px;
+}
+
+div.specialty-text h4 {
+  border-bottom: 1px solid #DFDFDD;
+  padding-bottom: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+div.specialty-text h4 span {
+  float: right;
+  font-size: 30px;
+  color: #F19F30;
+  font-family: 'Open Sans', sans-serif;
+}
+div.specialty-text p {
+  color: #3D3D3D;
+  line-height: 30px;
 }

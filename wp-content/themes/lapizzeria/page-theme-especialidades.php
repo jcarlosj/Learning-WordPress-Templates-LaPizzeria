@@ -21,8 +21,8 @@
   </div>
 <?php endwhile; ?>
 
-<div class="specialties">
-  <h3>Pizzas</h3>
+<div class="specialties content">
+  <h3 class="title-specialties">Pizzas</h3>
   <div class="grid-container">
     <?php
       # Creamos los argumentos de la consulta que deseamos hacer a WordPress
