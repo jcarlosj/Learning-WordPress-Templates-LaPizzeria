@@ -99,4 +99,51 @@
 
   /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
   add_action( 'after_setup_theme', 'lapizzeria_setup' );
+
+  /* Custom Post Type:
+     En WordPress existen 5 tipos de "Custom Post Types" por defecto: Entradas, Medios, Páginas, Menues y Comentarios
+     Estos sirven para personalizar el contenido y tener un tipo de contenido o Tipo de Post con los campos necesarios
+     y las personalizaciones adecuadas de acuerdo al tipo de contenido que van a administrar
+  */
+
+  /* Custom Post Type: Pizzas */
+  add_action( 'init', 'lapizzeria_especialidades' );
+  function lapizzeria_especialidades() {
+  	$labels = array(
+  		'name'               => _x( 'Pizzas', 'lapizzeria' ),
+  		'singular_name'      => _x( 'Pizzas', 'post type singular name', 'lapizzeria' ),
+  		'menu_name'          => _x( 'Pizzas', 'admin menu', 'lapizzeria' ),
+  		'name_admin_bar'     => _x( 'Pizzas', 'add new on admin bar', 'lapizzeria' ),
+  		'add_new'            => _x( 'Añadir nueva', 'book', 'lapizzeria' ),
+  		'add_new_item'       => __( 'Añadir nueva Pizza', 'lapizzeria' ),
+  		'new_item'           => __( 'Nueva Pizza', 'lapizzeria' ),
+  		'edit_item'          => __( 'Editar Pizza', 'lapizzeria' ),
+  		'view_item'          => __( 'Ver Pizza', 'lapizzeria' ),
+  		'all_items'          => __( 'Todas las Pizzas', 'lapizzeria' ),
+  		'search_items'       => __( 'Buscar Pizza', 'lapizzeria' ),
+  		'parent_item_colon'  => __( 'Parent Pizzas:', 'lapizzeria' ),
+  		'not_found'          => __( 'Pizzas no encontradas.', 'lapizzeria' ),
+  		'not_found_in_trash' => __( 'No se encontraron pizzas en la papelera.', 'lapizzeria' )
+  	);
+
+  	$args = array(
+  		'labels'             => $labels,
+      'description'        => __( 'Description.', 'lapizzeria' ),
+  		'public'             => true,
+  		'publicly_queryable' => true,
+  		'show_ui'            => true,
+  		'show_in_menu'       => true,
+  		'query_var'          => true,
+  		'rewrite'            => array( 'slug' => 'especialidades' ),
+  		'capability_type'    => 'post',
+  		'has_archive'        => true,
+  		'hierarchical'       => false,
+  		'menu_position'      => 6,
+  		'supports'           => array( 'title', 'editor', 'thumbnail' ),
+      'taxonomies'         => array( 'category' )
+  	);
+
+	register_post_type( 'especialidades', $args );
+}
+
 ?>
