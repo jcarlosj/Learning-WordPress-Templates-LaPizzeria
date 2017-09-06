@@ -1,3 +1,4 @@
+<?php # En jerarquía de plantillas de WordPress esta es una 'Default Template' -> page-$slug.php  ?>
 <?php get_header(); ?>
 
 <?php while( have_posts() ): the_post(); # Agregamos el loop de WordPress ?>
