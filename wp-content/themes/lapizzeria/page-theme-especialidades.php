@@ -23,7 +23,7 @@
 
 <div class="specialties">
   <h3>Pizzas</h3>
-  <ul>
+  <div class="grid-container">
     <?php
       # Creamos los argumentos de la consulta que deseamos hacer a WordPress
       $args = array(
@@ -38,10 +38,16 @@
       while ( $pizzas -> have_posts() ): $pizzas -> the_post();    # Creamos un loop para imprimir los valores traidos por la consulta
     ?>
 
-      <li><?php the_title(); ?></li>
+      <div class="">
+        <?php the_post_thumbnail( 'especialidades' ); ?>
+        <div class="specialty-text">
+          <h4><?php the_title(); ?> <span>$ <?php the_field( 'precio' ); ?></span></h4>
+          <?php the_content(); ?>
+        </div>  <!-- .specialty-text -->
+      </div>
 
     <?php endwhile; wp_reset_postdata(); # Solo usamos 'wp_reset_postdata()' cuando se use el 'WP_Query()' ?>
-  </ul>
+  </div>
 </div>
 
 <?php get_footer(); ?>

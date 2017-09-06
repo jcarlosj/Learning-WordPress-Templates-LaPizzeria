@@ -95,6 +95,12 @@
       291,          # Ancho de la imagen en pixeles
       true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
     );
+    add_image_size(
+      'especialidades',   # Nombre del tamaño de imagen que hemos registrado
+      768,          # Alto de la imagen en pixeles
+      515,          # Ancho de la imagen en pixeles
+      true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
+    );
   }
 
   /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
