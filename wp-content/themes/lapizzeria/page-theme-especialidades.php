@@ -21,4 +21,27 @@
   </div>
 <?php endwhile; ?>
 
+<div class="specialties">
+  <h3>Pizzas</h3>
+  <ul>
+    <?php
+      # Creamos los argumentos de la consulta que deseamos hacer a WordPress
+      $args = array(
+        'post_type'      => 'especialidades',   # Nombre del 'Post Type' (Se puede ver en la URL del ADMIN)
+        'posts_per_page' => -1,                 # Cantidad de registros a mostrar por página (-1 significa imprimirlos todos
+        'orderby'        => 'title',            # Ordenar por: Fecha de publicación, orden alfabético, Author etc.
+        'order'          => 'ASC',              # Tipo de orden: Ascendente, Descendente
+        'category_name'  => 'Pizzas'            # Muestra el Slug de una categoría previamente creada
+      );
+      #
+      $pizzas = new WP_Query( $args );          # Hacemos la consulta usando el 'WP_Query' y pasamos los argumentos de la misma
+      while ( $pizzas -> have_posts() ): $pizzas -> the_post();    # Creamos un loop para imprimir los valores traidos por la consulta
+    ?>
+
+      <li><?php the_title(); ?></li>
+
+    <?php endwhile; wp_reset_postdata(); # Solo usamos 'wp_reset_postdata()' cuando se use el 'WP_Query()' ?>
+  </ul>
+</div>
+
 <?php get_footer(); ?>
