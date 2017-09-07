@@ -41,6 +41,25 @@ h4 {
   font-size: 24px;
 }
 
+.button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  width: auto;
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 15px 80px;
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color .5s;
+}
+.button.red {
+  background-color: #A61206;
+}
+.button:hover {
+  background-color: #F19F30;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;    /* No aseguramos que todos los elementos hereden esta regla que le hemos puesto a nuestro border box */
 }
@@ -481,4 +500,60 @@ div.others-text p {
   .cols_2-3 {
     width: 66.6%;
   }
+}
+
+/* Page: Blog
+ * ------------ */
+article.blog-entry img {
+  margin-top: 30px;
+}
+
+header.information-blog-entry {
+  margin-top: 20px;
+}
+header.information-blog-entry div.date-entry {
+  background-color: #F19F30;
+  float: left;
+  width: 70px;          /* 70px */
+  height: 70px;
+  text-align: center;
+  padding-top: 5px;
+  margin-right: 20px;   /* 20px */
+  /* 90px de ancho en total */
+}
+header.information-blog-entry div.date-entry time {
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+header.information-blog-entry div.date-entry time span {
+  font-size: 16px;
+  display: block;
+  clear: both;
+  text-transform: uppercase;
+}
+header.information-blog-entry h2 {
+  float: right;
+  width: calc( 100% - 90px );
+}
+header.information-blog-entry h2 {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+header.information-blog-entry p.author-blog-entry {
+  text-transform: uppercase;
+  color #505050;
+  margin-top: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+header.information-blog-entry p.author-blog-entry i {
+  font-size: 30px;
+  color: #F19F30;
+}
+
+div.content-blog-entry p {
+  margin-bottom: 0;
+  line-height: 24px;
 }
