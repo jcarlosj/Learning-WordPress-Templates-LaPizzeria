@@ -1,16 +1,29 @@
 <?php get_header(); ?>
-    <h1>La Pizzería</h1>
-    <h3>index.php</h3>
-    <p>Esta es una plantilla base para WordPress desde <b>index.php</b></p>
-    <hr />
-     <?php
-     /* Loop de WordPress
-        Con este Loop podemos traer todas los "post" publicados al index.
-      */
-      while ( have_posts() ) {
-        the_post();
-        the_title( '<h1>', '</h1>' );
-        the_content();
-      }
-      ?>
+
+<?php
+  /* Cabecera del blog */
+  $blog_page_id  = get_option( 'page_for_posts' );
+  $blog_image_id = get_post_thumbnail_id( $blog_page_id );
+  $image         = wp_get_attachment_image_src( $blog_image_id, 'full' );
+?>
+
+  <div class="hero" style="background-image: url( <?php echo $image[ 0 ]; ?> );">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1><?php echo get_the_title( $blog_page_id );      # Template Tag: para imprimir el título de la página ?></h1>
+      </div>
+    </div>
+  </div>
+  <div class="principal content">
+    <main class="centered-text page-content">
+      <?php while( have_posts() ) : the_post(); ?>
+        <article class="blog entry">
+          <h3><?php the_title(); ?></h3> 
+          <?php the_content(); ?>
+        </article>
+      <?php endwhile; ?>
+    </main>
+  </div>
+
+
 <?php get_footer(); ?>
