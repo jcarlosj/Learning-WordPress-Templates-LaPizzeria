@@ -41,7 +41,8 @@ h4 {
   font-size: 24px;
 }
 
-.button {
+.button,
+div.comments form input[ type = 'submit' ] {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   width: auto;
@@ -52,6 +53,8 @@ h4 {
   display: inline-block;
   text-decoration: none;
   transition: background-color .5s;
+  background-color: #A61206;
+  cursor: pointer;
 }
 .button.red {
   background-color: #A61206;
@@ -282,8 +285,9 @@ nav.site-menu ul li:hover {
   background-color: #F19F30;
 }
 
-/* Usamos una de las clases de WordPress "current_page_item" */
-nav.site-menu ul li.current_page_item {
+/* Usamos una de las clases de WordPress "current_page_item", "current_page_parent" */
+nav.site-menu ul li.current_page_item a,        /* Resalta item de menú Blog: Click al enlace item de menu Blog */
+nav.site-menu ul li.current_page_parent a {     /* Resalta item de menú Blog: Click cualquiera de las entradas del Blog */
   border-bottom: 8px solid #A61206;
 }
 
@@ -604,4 +608,39 @@ aside .widget ul li a {
 }
 aside .widget ul li a:hover {
   color: #F19F30;
+}
+
+/* Page: Blog: Comments
+ * ------------ */
+div.comments h3 {
+  font-weight: 700;
+  text-align: center;
+}
+
+@media only screen and ( min-width: 992px ) {
+  div.comments {
+    width: 60%;
+  }
+}
+
+div.comments form label {
+  width: 200px;      /* 200px */
+  display: inline-block;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+}
+div.comments form input,
+div.comments form textarea {
+  padding: 10px;    /* 10px */
+  width: calc( 100% - 210px );
+}
+/* General */
+div.comments form input[ type = 'submit' ] {
+  margin: 0 auto;
+  display: block;
+  border: none;
+}
+div.comments form p.logged-in-as a {
+  color: #A61206;
 }
