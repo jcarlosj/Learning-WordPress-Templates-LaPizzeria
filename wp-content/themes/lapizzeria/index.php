@@ -44,6 +44,11 @@
           </div>
         </article>
       <?php endwhile; ?>
+
+      <div class="pagination">
+        <?php echo paginate_links(); # Paginación para las entradas del Blog (Método 1) ?>
+      </div>
+
     </main>
 
     <?php get_sidebar(); ?>
