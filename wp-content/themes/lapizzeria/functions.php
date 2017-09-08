@@ -152,4 +152,19 @@
 	register_post_type( 'especialidades', $args );
 }
 
+/* Widgets:  */
+
+function lapizzeria_widgets() {
+  register_sidebar( $args = array(
+    'name' => 'Blog Sidebar',    # Nombre con el que se identificará en el Back-End de WordPress
+    'id' => 'blog_sidebar', # El ID es especial para poderlo imprimir
+    'before_widget' => '<div class="widget">', # Esto es lo que se va a imprimir antes (Apertura)
+    'after_widget' => '</div>', #  Esto es lo que se va a imprimir después (Cierre)
+    'before_title' => '<h3>', # Tag contenedor del título (Apertura)
+    'after_title' => '</h3>' # Tag contenedor del título (Cierre)
+
+  ) );
+}
+add_action( 'widgets_init', 'lapizzeria_widgets' );
+
 ?>
