@@ -138,6 +138,10 @@ footer p.copyright {
   margin-top: 20px;
 }
 
+.sr-text,
+.screen-reader-text {
+  display: none;
+}
 /* Mobile First: Siempre se usa min-width */
 @media only screen and ( min-width: 768px ) {
   /* Tablet */
@@ -205,10 +209,6 @@ nav.social-menu ul {
   nav.social-menu ul {
     float: right;
   }
-}
-
-.sr-text {
-  display: none;
 }
 
 nav.social-menu ul li {
@@ -556,4 +556,52 @@ header.information-blog-entry p.author-blog-entry i {
 div.content-blog-entry p {
   margin-bottom: 0;
   line-height: 24px;
+}
+/* Page: Blog: Sidebar
+ * ------------ */
+form.searchform {
+  position: relative;
+}
+form.searchform #searchsubmit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  background-color: #A61206;
+  text-indent: -9999px;
+  background-image: url( 'images/buscador.png' );
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+}
+form.searchform input {
+  width: 100%;
+  padding: 10px;
+}
+
+aside .sidebar {
+  margin-top: 3px;
+}
+aside .widget {
+  margin-bottom: 20px;
+}
+aside .widget h3 {
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+aside .widget ul {
+  list-style: none;
+}
+aside .widget ul li {
+  margin-bottom: 20px;
+}
+aside .widget ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+aside .widget ul li a:hover {
+  color: #F19F30;
 }
