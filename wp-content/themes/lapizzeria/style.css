@@ -581,6 +581,14 @@ div.pagination .current {
   font-weight: bold;
   color: #555555;
 }
+div.pagination .previous,
+div.pagination .next {
+  float: left;
+}
+div.pagination .previous {
+  margin-right: 20px;
+}
+
 
 /* Page: Blog: Sidebar
  * ------------ */

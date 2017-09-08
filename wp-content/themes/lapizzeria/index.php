@@ -46,7 +46,12 @@
       <?php endwhile; ?>
 
       <div class="pagination">
-        <?php echo paginate_links(); # Paginación para las entradas del Blog (Método 1) ?>
+        <div class="previous">
+          <?php next_posts_link( 'Anteriores' ); # Paginación (Método 2) ?>
+        </div>
+        <div class="next">
+          <?php previous_posts_link( 'Siguientes' ); # Paginación (Método 2) ?>
+        </div>
       </div>
 
     </main>
