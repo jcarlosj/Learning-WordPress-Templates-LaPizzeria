@@ -46,6 +46,8 @@
       <?php endwhile; ?>
     </main>
 
+    <?php get_sidebar(); ?>
+
   </div>  <!-- .grid-container -->
 </div>  <!-- .principal .content -->
 
