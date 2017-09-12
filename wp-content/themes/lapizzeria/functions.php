@@ -27,6 +27,12 @@
       '1.0.0'
     );
     wp_register_style(
+      'fluidbox_css',                                # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/css/fluidbox.min.css',  # Ruta del fichero en el directorio CSS de la plantilla
+      array( 'normalize' ),                          # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '2.0.5'
+    );
+    wp_register_style(
       'style',                                      # Nombre que toma la función registrada en el Core de Wordpress
       get_template_directory_uri() . '/style.css',  # Ruta del fichero en el directorio CSS de la plantilla
       array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
@@ -35,6 +41,7 @@
     /* Agregamos el  estilo registrado */
     wp_enqueue_style( 'normalize' );
     wp_enqueue_style( 'fontawesome' );
+    wp_enqueue_style( 'fluidbox_css' );
     wp_enqueue_style( 'style' );
   }
 
@@ -51,10 +58,26 @@
       '1.0.0',                                      # Versión del Script
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
     );
+    wp_register_script(
+      'fluidbox-jquery-throttle-debounce-plugin',                                   # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/js/jquery.ba-throttle-debounce.min.js',  # Ruta del fichero en el directorio JS de la plantilla
+      array( 'jquery' ),                            # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '1.1.0',                                      # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
+    wp_register_script(
+      'fluidbox',                                   # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/js/jquery.fluidbox.min.js',  # Ruta del fichero en el directorio JS de la plantilla
+      array( 'jquery', 'fluidbox-jquery-throttle-debounce-plugin' ),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '2.0.5',                                      # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
     /* Agregamos el los ficheros script registrados */
     wp_enqueue_script( 'jquery' );                  # Agregamos la versión de Bootstrap que trae WordPress
                                                     # También puede hacerse de la forma tradicional descargando el fichero de bootstrap
     wp_enqueue_script( 'scripts' );
+    wp_enqueue_script( 'fluidbox-jquery-throttle-debounce-plugin' );
+    wp_enqueue_script( 'fluidbox' );
 
   }
 
