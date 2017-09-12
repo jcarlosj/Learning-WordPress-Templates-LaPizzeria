@@ -1,4 +1,6 @@
 <?php
+  require get_template_directory() .'/includes/database.php';
+
   /* A través de este archivo se agregan todas las funcionalidades y archivos
      relacionadas con la plantilla. Se recomienda crear las funciones con el
      prefijo del "Text Domain" de la plantilla más la acción que deseamos realizar,
