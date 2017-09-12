@@ -124,6 +124,12 @@
       515,          # Ancho de la imagen en pixeles
       true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
     );
+
+    /* Cambia las dimensiones personalizadas (Ajustes Multimedia) en el ADMIN de WordPress de manera que
+       queden predeterminadas al instalar esta plantilla (Tamaño de la miniatura) */
+    update_option( 'thumbnail_size_w', 253 );   # Width
+    update_option( 'thumbnail_size_h', 164 );   # Height
+    /* Para cambiar los otros tamaños predeterminados de WordPress simplemente cambiamos la palabra 'thumbnail' por: 'medium', 'large', etc */
   }
 
   /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
