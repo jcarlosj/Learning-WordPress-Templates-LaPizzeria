@@ -693,3 +693,54 @@ div#gallery-1 .gallery-item .gallery-icon {
 div#gallery-1 img {
   border: none;
 }
+/* Page: Contacto
+ * ------------ */
+div.contact {
+  background-image: url( 'images/contacto_bg.jpg' );
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+@media only screen and ( min-width: 768px ) {
+  form.reservation {
+    margin-left: 50%;
+  }
+}
+form.reservation h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+form.reservation .field {
+  margin-bottom: 20px;
+  width: 100%
+}
+form.reservation .field input,
+form.reservation .field textarea {
+  width: 100%;
+  border: 3px solid #000000;
+  padding: 10px 15px;
+}
+form.reservation .field textarea {
+  height: 200px;
+}
+form.reservation ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #000000;
+}
+form.reservation ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #000000;
+}
+form.reservation :-moz-placeholder {
+  /* Firefox 18- */
+  color: #000000;
+}
+form.reservation :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #000000;
+}
+form.reservation button[ type = "submit" ] {
+  border: none;
+  margin: 0 auto;
+  display: block;
+}
