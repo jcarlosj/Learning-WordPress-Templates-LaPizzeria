@@ -21,7 +21,17 @@ $( document ) .ready( function() {
       else {
         $( 'nav.site-menu' ) .hide();
       }
+
     });   // $( window )
+
+    /* Fluidbox */
+    jQuery( '.gallery a' ) .each( function() {
+      jQuery( this ) .attr({'data-fluidbox': ''});
+    });
+
+    if( jQuery( '[data-fluidbox]' ) .length > 0 ) {
+      jQuery( '[data-fluidbox]' ) .fluidbox();
+    }
 
     /* Funci[on para ajustar las cajas] */
     function adjustBoxes() {
