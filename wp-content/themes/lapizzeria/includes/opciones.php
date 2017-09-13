@@ -19,10 +19,26 @@
       'lapizzeria_reservaciones', # Slug del ítem del submenú que estamos creando
       'lapizzeria_reservaciones'  # Callback o nombre de la función
     );
+    /* Hook: Indicar a WordPress que tenemos campos de formulario para nuestro
+             Tema (o plantilla) de Ajustes
+    */
+    add_action( 'admin_init', 'lapizzeria_registrar_opciones' );
 
   }
 
   add_action( 'admin_menu', 'lapizzeria_ajustes' );   # Hook al menu de administración de WordPress
+
+  /* Registra las opciones que va a usar el formulario (Una por cada campo) */
+  function lapizzeria_registrar_opciones() {
+    register_setting(
+      'lapizzeria_opciones_grupo',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_direccion'          # Nombre del campo del formulario
+    );
+    register_setting(
+      'lapizzeria_opciones_grupo',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_telefono'           # Nombre del campo del formulario
+    );
+  }
 
   /* Crea página de Administración para los ajustes */
   function lapizzeria_opciones() {
@@ -34,17 +50,21 @@
           <h1>Ajustes "La Pizzería"</h1>
 
           <form action="options.php" method="post">
+            <?php
+              settings_fields( 'lapizzeria_opciones_grupo' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
+              do_settings_sections( 'lapizzeria_opciones_grupo' );  # Le indicamos a WordPress que utilice los campos del grupo
+            ?>
             <table class="form-table">
               <tr valign="top">
                 <th scope="row">Dirección</th>
                 <td>
-                  <input type="text" name="lapizzeria_direccion" value="" />
+                  <input type="text" name="lapizzeria_direccion" value="<?php echo esc_attr( get_option( 'lapizzeria_direccion' ) ); ?>" />
                 </td>
               </tr>
               <tr valign="top">
                 <th scope="row">Teléfono</th>
                 <td>
-                  <input type="text" name="lapizzeria_telefono" value="" />
+                  <input type="text" name="lapizzeria_telefono" value="<?php echo esc_attr( get_option( 'lapizzeria_telefono' ) ); ?>" />
                 </td>
               </tr>
             </table>

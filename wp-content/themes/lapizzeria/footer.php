@@ -10,8 +10,8 @@
       wp_nav_menu( $args );
       ?>
       <div class="location">
-        <p>Avenida Siempreviva 742, Springfield</p>
-        <p>Teléfono: +1-92-456-7890</p>
+        <p><?php echo esc_html( get_option( 'lapizzeria_direccion' ) ); ?></p>
+        <p>Teléfono: <?php echo esc_html( get_option( 'lapizzeria_telefono' ) ); ?></p>
       </div>
       <p class="copyright">
         Todos los derechos reservados <?php echo date( 'Y' ); ?>.
