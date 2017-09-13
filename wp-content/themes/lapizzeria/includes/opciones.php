@@ -36,30 +36,64 @@
 
   /* Crea página de Administración para las reservaciones */
   function lapizzeria_reservaciones() {
+    /* Despliega el tema o la vista para Reservaciones */
     ?>
         <div class="wrap">
           <h1>Reservaciones</h1>
-          <?php
-            /* Acceso a la tabla */
-            global $wpdb;   # Clase de acceso a las funciones de CRUD de WordPress
-            $name_table = $wpdb -> prefix .'reservaciones'; # Prefijo de la tabla fijado en la configuración inicial
+          <table class="wp-list-table widefat fixed striped">
+            <thead>
+              <tr>
+                <th class="manage-column">ID</th>
+                <th class="manage-column">Nombre del cliente</th>
+                <th class="manage-column">Fecha de la reservación</th>
+                <th class="manage-column">Correo del cliente</th>
+                <th class="manage-column">Teléfono del cliente</th>
+                <th class="manage-column">Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                /* Acceso a la tabla */
+                global $wpdb;   # Clase de acceso a las funciones de CRUD de WordPress
+                $name_table = $wpdb -> prefix .'reservaciones'; # Prefijo de la tabla fijado en la configuración inicial
 
-            /* Obtenemos los registros de la misma a través de una consulta */
-            $rows = $wpdb -> get_results(
-              "SELECT id, nombre, fecha, correo, telefono, mensaje FROM $name_table ", # Consulta SQL: Soporta cualquier tipo de consulta SQL
-              ARRAY_A         # Indica a $wpdb que nos retorne los datos como un Array Asociativo, por defecto retorna un Array de Objetos.
-            );
-            # Otras opciones:
-            #  - ARRAY_A:  Array Asociativo
-            #  - ARRAY_N:  Array Numérico
-            #  - OBJECT:   Array Objetos (Si no se pone opción esta es la que queda por defecto)
-            #  - OBJECT_K: Array Objetos donde el primer ítem comienza por 1
+                /* Obtenemos los registros de la misma a través de una consulta */
+                $rows = $wpdb -> get_results(
+                  "SELECT id, nombre, fecha, correo, telefono, mensaje FROM $name_table ", # Consulta SQL: Soporta cualquier tipo de consulta SQL
+                  ARRAY_A         # Indica a $wpdb que nos retorne los datos como un Array Asociativo, por defecto retorna un Array de Objetos.
+                );
+                # Otras opciones:
+                #  - ARRAY_A:  Array Asociativo
+                #  - ARRAY_N:  Array Numérico
+                #  - OBJECT:   Array Objetos (Si no se pone opción esta es la que queda por defecto)
+                #  - OBJECT_K: Array Objetos donde el primer ítem comienza por 1
 
-            # To Debug: Verificamos que todos los registros sean extraidos de la Base de datos.
-            #           Todos estos como un Array de Objetos
-            echo '<pre>'; var_dump( $rows ); echo '</pre>';
-
-          ?>
+                /* Imprime los resultados de la consulta en la vista dentro de cada uno de los campos de la tabla */
+                foreach ( $rows as $key => $row ) :
+              ?>
+                  <tr>
+                    <td class=""><?php echo $row[ 'id' ]?></td>
+                    <td class=""><?php echo $row[ 'nombre' ]?></td>
+                    <td class=""><abbr title="<?php echo $row[ 'fecha' ]?>"><?php echo $row[ 'fecha' ]?></abbr></td>
+                    <td class=""><?php echo $row[ 'correo' ]?></td>
+                    <td class=""><?php echo $row[ 'telefono' ]?></td>
+                    <td class=""><?php echo $row[ 'mensaje' ]?></td>
+                  </tr>
+              <?php
+                endforeach;
+              ?>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th class="manage-column">ID</th>
+                <th class="manage-column">Nombre del cliente</th>
+                <th class="manage-column">Fecha de la reservación</th>
+                <th class="manage-column">Correo del cliente</th>
+                <th class="manage-column">Teléfono del cliente</th>
+                <th class="manage-column">Mensaje</th>
+              </tr>
+            </tfoot>
+          </table>
         </div>
     <?php
   }
