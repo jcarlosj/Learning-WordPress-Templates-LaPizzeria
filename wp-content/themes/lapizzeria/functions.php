@@ -1,5 +1,9 @@
 <?php
+  /* Acceso a la Base de Datos de WordPress y Creación de Tablas Personalizadas */
   require get_template_directory() .'/includes/database.php';
+
+  /* Acciones (CRUD) para tablas personalizadas */
+  require get_template_directory() .'/includes/reservaciones.php';
 
   /* A través de este archivo se agregan todas las funcionalidades y archivos
      relacionadas con la plantilla. Se recomienda crear las funciones con el
