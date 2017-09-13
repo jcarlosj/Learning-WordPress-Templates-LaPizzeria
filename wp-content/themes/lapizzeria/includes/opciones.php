@@ -26,10 +26,31 @@
 
   /* Crea página de Administración para los ajustes */
   function lapizzeria_opciones() {
+    /* Despliega el tema o la vista para Opciones
+       Cuando se crean páginas de opciones el 'action' del 'form' siempre debe ser 'options.php'
+    */
     ?>
         <div class="wrap">
-          <h1>Ajustes</h1>
+          <h1>Ajustes "La Pizzería"</h1>
 
+          <form action="options.php" method="post">
+            <table class="form-table">
+              <tr valign="top">
+                <th scope="row">Dirección</th>
+                <td>
+                  <input type="text" name="lapizzeria_direccion" value="" />
+                </td>
+              </tr>
+              <tr valign="top">
+                <th scope="row">Teléfono</th>
+                <td>
+                  <input type="text" name="lapizzeria_telefono" value="" />
+                </td>
+              </tr>
+            </table>
+
+            <?php submit_button(); ?>
+          </form>
         </div>
     <?php
   }
