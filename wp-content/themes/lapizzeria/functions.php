@@ -5,6 +5,9 @@
   /* Acciones (CRUD) para tablas personalizadas */
   require get_template_directory() .'/includes/reservaciones.php';
 
+  /* Crear opciones para el Tema (o plantilla) de WordPress */
+  require get_template_directory() .'/includes/opciones.php';
+
   /* A través de este archivo se agregan todas las funcionalidades y archivos
      relacionadas con la plantilla. Se recomienda crear las funciones con el
      prefijo del "Text Domain" de la plantilla más la acción que deseamos realizar,
