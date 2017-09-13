@@ -46,8 +46,14 @@
 
             /* Obtenemos los registros de la misma a través de una consulta */
             $rows = $wpdb -> get_results(
-              "SELECT id, nombre, fecha, correo, telefono, mensaje FROM $name_table " # Consulta SQL: Soporta cualquier tipo de consulta SQL
+              "SELECT id, nombre, fecha, correo, telefono, mensaje FROM $name_table ", # Consulta SQL: Soporta cualquier tipo de consulta SQL
+              ARRAY_A         # Indica a $wpdb que nos retorne los datos como un Array Asociativo, por defecto retorna un Array de Objetos.
             );
+            # Otras opciones:
+            #  - ARRAY_A:  Array Asociativo
+            #  - ARRAY_N:  Array Numérico
+            #  - OBJECT:   Array Objetos (Si no se pone opción esta es la que queda por defecto)
+            #  - OBJECT_K: Array Objetos donde el primer ítem comienza por 1
 
             # To Debug: Verificamos que todos los registros sean extraidos de la Base de datos.
             #           Todos estos como un Array de Objetos
