@@ -39,7 +39,21 @@
     ?>
         <div class="wrap">
           <h1>Reservaciones</h1>
+          <?php
+            /* Acceso a la tabla */
+            global $wpdb;   # Clase de acceso a las funciones de CRUD de WordPress
+            $name_table = $wpdb -> prefix .'reservaciones'; # Prefijo de la tabla fijado en la configuración inicial
 
+            /* Obtenemos los registros de la misma a través de una consulta */
+            $rows = $wpdb -> get_results(
+              "SELECT id, nombre, fecha, correo, telefono, mensaje FROM $name_table " # Consulta SQL: Soporta cualquier tipo de consulta SQL
+            );
+
+            # To Debug: Verificamos que todos los registros sean extraidos de la Base de datos.
+            #           Todos estos como un Array de Objetos
+            echo '<pre>'; var_dump( $rows ); echo '</pre>';
+
+          ?>
         </div>
     <?php
   }
