@@ -17,12 +17,28 @@
       </div>
     </div>
   </div>
-  <div class="principal content">
-    <main class="centered-text page-content">
-      Hola desde el <b>front-page.php</b>
-      <?php #the_content();    # Template Tag: para imprimir el contenido de la página ?>
-    </main>
-  </div>
 <?php endwhile; ?>
+
+<div class="principal content">
+  <main class="centered-text page-content">
+    <h1 class="red">Nuestras especialidades</h1>
+    <?php
+      $args = array(
+        'posts_per_page' => 3,
+        'orderby'        => 'rand',
+        'post_type'      => 'especialidades',
+        'category_name'  => 'pizzas'
+      );
+
+      $specialties = new WP_Query( $args );
+      while( $specialties -> have_posts() ):
+        $specialties -> the_post();
+    ?>
+      <div class="speciality">
+        <?php the_title(); ?>
+      </div>
+    <?php endwhile; wp_reset_postdata(); ?>
+  </main>
+</div>
 
 <?php get_footer(); ?>

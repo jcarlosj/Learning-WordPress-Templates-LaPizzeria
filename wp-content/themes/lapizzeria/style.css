@@ -56,6 +56,9 @@ div.comments form input[ type = 'submit' ] {
   background-color: #A61206;
   cursor: pointer;
 }
+.red {
+  color: #A61206;
+}
 .button.red {
   background-color: #A61206;
 }
