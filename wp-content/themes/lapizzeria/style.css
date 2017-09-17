@@ -59,6 +59,12 @@ div.comments form input[ type = 'submit' ] {
 .button.red {
   background-color: #A61206;
 }
+.button.orange {
+  background-color: #F19F30;
+}
+.button.orange:hover {
+  background-color: #A61206;
+}
 .button:hover {
   background-color: #F19F30;
 }
@@ -345,7 +351,6 @@ div.hero::after {
   height: 100%;
   background-color: rgba( 0, 0, 0, .6 );
 }
-
 div.hero .hero-content {
   display: table-cell;
   vertical-align: middle;
@@ -366,7 +371,6 @@ div.hero .hero-content {
     width: 60%;
   }
 }
-
 
 div.principal {
   padding: 60px;
@@ -743,4 +747,25 @@ form.reservation button[ type = "submit" ] {
   border: none;
   margin: 0 auto;
   display: block;
+}
+/* Page: Inicio (Front-Page)
+ * ------------ */
+.home div.hero {
+  height: 650px;
+}
+
+.home div.hero h1 {
+  margin-top: 0;
+}
+
+.home .hero-text p {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+@media only screen and ( min-width: 768px ) {
+  .home .hero-text {
+    margin: 0 auto;
+    max-width: 680px;
+  }
 }

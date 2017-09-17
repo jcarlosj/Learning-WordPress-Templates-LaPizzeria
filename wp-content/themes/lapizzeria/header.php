@@ -9,7 +9,7 @@
       wp_head();
     ?>
   </head>
-  <body>
+  <body <?php body_class(); # WordPress agrega estilos diferentes al cuerpo de cada una de las páginas ?> >
     <header class="site-header">
       <div class="content">
         <div class="logo">

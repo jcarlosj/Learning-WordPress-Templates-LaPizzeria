@@ -11,11 +11,9 @@
                                                                   # de la sección 'Ajuestes generales' en el ADMIN de WordPress
             ?>
         </h1>
-        <?php
-          the_content();
-          $url = get_page_by_title( 'Nosotros' );
-        ?>
-        <a class="button" href="<?php echo get_permalink( $url -> ID ); ?>">Leer más</a>
+        <?php the_content();?>
+        <?php $url = get_page_by_title( 'Nosotros' ); ?>
+        <a class="button orange" href="<?php echo get_permalink( $url -> ID ); ?>">Leer más</a>
       </div>
     </div>
   </div>
