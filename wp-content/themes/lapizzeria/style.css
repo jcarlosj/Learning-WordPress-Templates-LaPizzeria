@@ -772,3 +772,27 @@ form.reservation button[ type = "submit" ] {
     max-width: 680px;
   }
 }
+
+/* Nuestras Especialidades */
+div.speciality-content {
+  position: relative;
+  overflow: hidden;
+  display: table;
+}
+
+div.dish-information {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba( 241, 159, 48, .72);
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: #FFFFFF;
+}
+
+div.speciality-content:hover div.dish-information {
+
+}
