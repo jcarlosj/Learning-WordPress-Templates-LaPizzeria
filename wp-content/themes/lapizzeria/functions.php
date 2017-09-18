@@ -133,6 +133,12 @@
       515,          # Ancho de la imagen en pixeles
       true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
     );
+    add_image_size(
+      'especialidades_portrait',   # Nombre del tamaño de imagen que hemos registrado
+      435,          # Alto de la imagen en pixeles
+      526,          # Ancho de la imagen en pixeles
+      true          # True si deseamos que puedo de la redimensión se haga cropping o recorte de la imagen
+    );
 
     /* Cambia las dimensiones personalizadas (Ajustes Multimedia) en el ADMIN de WordPress de manera que
        queden predeterminadas al instalar esta plantilla (Tamaño de la miniatura) */

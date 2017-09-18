@@ -20,7 +20,7 @@
 <?php endwhile; ?>
 
 <div class="principal content">
-  <main class="centered-text page-content">
+  <main class="grid-container">
     <h1 class="red">Nuestras especialidades</h1>
     <?php
       $args = array(
@@ -34,8 +34,16 @@
       while( $specialties -> have_posts() ):
         $specialties -> the_post();
     ?>
-      <div class="speciality">
-        <?php the_title(); ?>
+      <div class="speciality cols_1-3">
+        <div class="speciality-content">
+          <?php the_post_thumbnail( 'especialidades_portrait' ); ?>
+          <div class="dish-information">
+            <h3><?php the_title(); ?></h3>
+            <?php the_content(); ?>
+            <p class="price"><?php the_field( 'precio' ); ?></p>
+            <a href="<?php the_permalink(); ?>" class="button">Leer más</a>
+          </div>
+        </div>
       </div>
     <?php endwhile; wp_reset_postdata(); ?>
   </main>
