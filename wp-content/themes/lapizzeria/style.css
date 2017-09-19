@@ -917,3 +917,8 @@ section.location-and-reservation {
   width: auto;
   display: inline;
 }
+
+/* Mapa */
+section.location-and-reservation #location-map {
+  height: 600px;
+}
