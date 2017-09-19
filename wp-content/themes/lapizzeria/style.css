@@ -871,3 +871,49 @@ section.ingredients div.imagen {
 section.ingredients div.imagen img {
   width: 80%;
 }
+
+/* Sección: Localización (Mapa) y Reservación (Formulario) */
+section.location-and-reservation {
+  background-image: url( 'images/bg-ingredientes.jpg' );
+  margin-top: 50px;
+}
+
+.home form.reservation {
+  margin: 0;
+  padding: 50px;
+}
+.home form.reservation h2 {
+  color: #FFFFFF;
+  font-size: 34px;
+  text-align: center;
+}
+.home form.reservation input,
+.home form.reservation textarea {
+  background-color: transparent;
+  border: 4px solid #FFFFFF;
+}
+.home form.reservation ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #FFFFFF;
+}
+.home form.reservation ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #FFFFFF;
+}
+.home form.reservation :-moz-placeholder {
+  /* Firefox 18- */
+  color: #FFFFFF;
+}
+.home form.reservation :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #FFFFFF;
+}
+.home form.reservation input[ type = 'datetime-local' ] {
+  /* Input tipo date */
+  color: #FFFFFF;
+}
+.home form.reservation button[ type = 'submit' ] {
+  border: none;
+  width: auto;
+  display: inline;
+}
