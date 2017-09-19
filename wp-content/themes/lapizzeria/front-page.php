@@ -49,4 +49,20 @@
   </main>
 </div>
 
+<section class="ingredients">
+  <div class="principal content">
+    <div class="grid-container">
+      <?php while( have_posts() ): the_post(); # Agregamos el loop de WordPress ?>
+      <div class="cols_2-4">
+        <?php the_field( 'contenido' ); ?>
+        <a href="<?php the_permalink(); ?>" class="button">Leer más</a>
+      </div>
+      <div class="cols_2-4">
+        <img src="<?php the_field( 'imagen' ); ?>" alt="" />
+      </div>
+      <?php endwhile; ?>
+    </div>
+  </div>
+</section>
+
 <?php get_footer(); ?>
