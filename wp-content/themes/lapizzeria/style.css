@@ -773,7 +773,7 @@ form.reservation button[ type = "submit" ] {
   }
 }
 
-/* Nuestras Especialidades */
+/* Sección: Nuestras Especialidades */
 div.speciality-content {
   overflow: visible;
   display: block;
@@ -844,4 +844,30 @@ div.dish-information a {
     opacity: 1;
     top: 0;
   }
+}
+
+/* Sección: Ingredientes Frescos en todas nuestras pizzas */
+section.ingredients {
+  background-image: url( 'images/bg-ingredientes.jpg' );
+  color: #FFFFFF;
+  margin-top: 50px;
+  padding: 80px 0;
+}
+section.ingredients h3 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+}
+section.ingredients p {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+section.ingredients div.imagen {
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+}
+section.ingredients div.imagen img {
+  width: 80%;
 }
