@@ -775,24 +775,73 @@ form.reservation button[ type = "submit" ] {
 
 /* Nuestras Especialidades */
 div.speciality-content {
-  position: relative;
-  overflow: hidden;
-  display: table;
+  overflow: visible;
+  display: block;
+  margin-bottom: 20px;
+}
+div.speciality-content img {
+  width: 100%;
 }
 
 div.dish-information {
-  position: absolute;
-  top: 0;
+  background-color: #F19F30;
+  color: #FFFFFF;
+  display: table-cell;
+  position: relative;
+  top: 100%;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba( 241, 159, 48, .72);
-  display: table-cell;
+  opacity: 1;
+  padding: 23px;
   text-align: center;
   vertical-align: middle;
-  color: #FFFFFF;
+}
+div.dish-information h3 {
+  font-size: 30px;
+  margin: 0px 8px 14px 8px;
+  font-weight: 700;
+}
+div.dish-information p {
+  margin: 0;
+}
+div.dish-information .price {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+div.dish-information a {
+  width: 90%;
+  margin: 0 0 10px 0;
+  padding: 12px 20px;
 }
 
-div.speciality-content:hover div.dish-information {
+@media only screen and ( min-width: 768px ) {
+  div.speciality-content {
+    position: relative;
+    overflow: hidden;
+    display: table;
+  }
+  div.dish-information {
+    background-color: rgba( 241, 159, 48, .72);
+    position: absolute;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+  }
+  div.dish-information h3 {
+    margin: 22px 0;
+  }
+  div.dish-information p {
+    font-size: 14px;
+    line-height: 1.6em;
+    margin: 0;
+  }
+  div.dish-information .price {
+    margin: 0;
+  }
 
+  div.speciality-content:hover div.dish-information {
+    opacity: 1;
+    top: 0;
+  }
 }

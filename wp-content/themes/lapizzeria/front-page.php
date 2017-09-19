@@ -21,7 +21,7 @@
 
 <div class="principal content">
   <main class="grid-container">
-    <h1 class="red">Nuestras especialidades</h1>
+    <h1 class="centered-text red">Nuestras especialidades</h1>
     <?php
       $args = array(
         'posts_per_page' => 3,
@@ -40,7 +40,7 @@
           <div class="dish-information">
             <h3><?php the_title(); ?></h3>
             <?php the_content(); ?>
-            <p class="price"><?php the_field( 'precio' ); ?></p>
+            <p class="price">$<?php the_field( 'precio' ); ?></p>
             <a href="<?php the_permalink(); ?>" class="button">Leer más</a>
           </div>
         </div>
