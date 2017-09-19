@@ -71,4 +71,21 @@
   <?php echo get_post_gallery( $url -> ID ); ?>
 </section>
 
+<section class="location-and-reservation">
+  <div class="grid-container">
+    <div class="cols_2-4">
+      Mapa
+    </div>
+    <div class="cols_2-4">
+      <?php
+        # Llamamos al formulario de reservación (que ha sido creado en una plantilla)
+        get_template_part(
+          'templates/form',   # Path Template: path/primera parte del nombre del archivo sin guión
+          'reservacion'       # Name: nombre de la segunda parte del archivo sin guión
+        );
+      ?>
+    </div>
+  </div>
+</section>
+
 <?php get_footer(); ?>
