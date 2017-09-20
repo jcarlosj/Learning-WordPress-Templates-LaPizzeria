@@ -3,9 +3,20 @@
 /* Implementación del Mapa usando la API de Google Maps V3 */
 var map;
 function initMap() {
+  /* Creamos un objeto con las coordenadas donde deseamos visualizar el Mapa */
+  var latLng = {
+    lat: 4.653548,
+    lng: -74.072510
+  };
   map = new google.maps.Map(document.getElementById( 'location-map' ), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    center: latLng,
+    zoom: 14
+  });
+  /* Agregamos el Pin al Mapa */
+  var marker = new google .maps .Marker({
+    position: latLng,
+    map: map,
+    title: 'La Pizzería'
   });
 }
 
