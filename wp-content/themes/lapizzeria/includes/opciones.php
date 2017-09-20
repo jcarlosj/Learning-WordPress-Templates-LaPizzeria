@@ -65,6 +65,16 @@
     ?>
         <div class="wrap">
           <h1>Ajustes "La Pizzería"</h1>
+          <?php
+            if( isset( $_GET[ 'tab' ] ) ) :
+              $active_tab = $_GET[ 'tab' ];
+            endif;
+          ?>
+
+          <h2 class="nav-tab-wrapper">
+            <a href="?page=lapizzeria_ajustes&tab=site" class="nav-tab <?php echo $active_tab == 'site' ? 'nav-tab-active' : ''; ?> ">Sitio</a>
+            <a href="?page=lapizzeria_ajustes&tab=google-maps" class="nav-tab <?php echo $active_tab == 'google-maps' ? 'nav-tab-active' : ''; ?> ">Google Maps</a>
+          </h2>
 
           <form action="options.php" method="post">
             <h2>Sitio</h2>
