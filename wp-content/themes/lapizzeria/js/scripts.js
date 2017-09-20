@@ -23,6 +23,17 @@ $( document ) .ready( function() {
     $( window ) .resize( function() {
       adjustBoxes();  /* Se ajustan cada que se hace un resize */
 
+      /* Ajusta Mapa */
+      var map = $( '#location-map' );
+      if( map .length > 0 ) {   /* Si existe el mapa */
+        /* Miramos la altura que tiene el TAG de la sección "Localización y Reservas" */
+        var elementSection = $( '.location-and-reservation' );
+        var heightElementSection = elementSection .height();
+        console .log( 'Altura ' + heightElementSection );
+        /* Le indicamos al mapa que debe tener la misma altura del elemento de la sección */
+        map .css({ 'height' : heightElementSection+'px' });
+      }
+
       /* console .log( $( document ) .width() + ' px'); */
       if( $( document ) .width() >= breakpoint ) {
         $( 'nav.site-menu' ) .show();
