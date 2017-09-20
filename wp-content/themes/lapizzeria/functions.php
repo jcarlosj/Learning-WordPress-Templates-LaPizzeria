@@ -81,14 +81,44 @@
       '2.0.5',                                      # Versión del Script
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
     );
+    wp_register_script(
+      'google-maps',                                # Nombre que toma la función registrada en el Core de Wordpress (handle)
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyAg1Z4cnIMEvFo5e8ASJYt2tVO_zEFt-vE&callback=initMap',  # Ruta del fichero en el directorio JS de la plantilla
+      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      'V3',                                         # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
+
     /* Agregamos el los ficheros script registrados */
     wp_enqueue_script( 'jquery' );                  # Agregamos la versión de Bootstrap que trae WordPress
                                                     # También puede hacerse de la forma tradicional descargando el fichero de bootstrap
     wp_enqueue_script( 'scripts' );
     wp_enqueue_script( 'fluidbox-jquery-throttle-debounce-plugin' );
     wp_enqueue_script( 'fluidbox' );
+    wp_enqueue_script( 'google-maps' );
 
   }
+
+  /* Agrega las propiedades "Async" y "Defer" al tag script que implementa la API de Google Maps en la vista 
+     Necesarios para la implementación de Mapas con la API de Google Maps
+     $tag y $handle son de WordPress
+  */
+  function add_async_defer( $tag, $handle ) {
+    if( 'google-maps' !== $handle ) {
+      return $tag;
+    }
+    return str_replace(
+      ' src',                               # Lo que queremos reemplazar
+      ' async="async" defer="defer" src',   # Por lo que lo vamos a reemplazar
+      $tag                                  # A quien se lo aplicamos. En nuestro caso al TAG <script>
+    );
+  }
+  add_filter(
+    'script_loader_tag',  # Hook de WordPress donde va a ejecutar
+    'add_async_defer',    # Función que se va a ejecutar,
+    10,                   # Prioridad
+    2                     # Número de argumentos que se desean pasar ( $tag, $handle )
+  );
 
   /* Agrega las acciones creadas al Core de WordPress:
      Ayuda a que estas sean reconocidas */

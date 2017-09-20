@@ -90,16 +90,4 @@
   </div>
 </section>
 
-<script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById( 'location-map' ), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg1Z4cnIMEvFo5e8ASJYt2tVO_zEFt-vE&callback=initMap"
-    async defer></script>
-
 <?php get_footer(); ?>

@@ -1,5 +1,14 @@
 /* JavaScript File */
 
+/* Implementación del Mapa usando la API de Google Maps V3 */
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById( 'location-map' ), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+
 /* jQuery */
 $ = jQuery.noConflict();    /* Elimina Error de Referencia cuando el $ no aparece definido */
 
