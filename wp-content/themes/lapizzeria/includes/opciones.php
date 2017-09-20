@@ -68,6 +68,8 @@
           <?php
             if( isset( $_GET[ 'tab' ] ) ) :
               $active_tab = $_GET[ 'tab' ];
+            else:
+              $active_tab = 'site';   # Valor por defecto si no viene ningún valor vía GET
             endif;
           ?>
 
@@ -77,56 +79,64 @@
           </h2>
 
           <form action="options.php" method="post">
-            <h2>Sitio</h2>
-            <?php
-              settings_fields( 'lapizzeria_opciones_grupo' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
-              do_settings_sections( 'lapizzeria_opciones_grupo' );  # Le indicamos a WordPress que utilice los campos del grupo
-            ?>
-            <table class="form-table">
-              <tr valign="top">
-                <th scope="row">Dirección</th>
-                <td>
-                  <input type="text" name="lapizzeria_direccion" value="<?php echo esc_attr( get_option( 'lapizzeria_direccion' ) ); ?>" />
-                </td>
-              </tr>
-              <tr valign="top">
-                <th scope="row">Teléfono</th>
-                <td>
-                  <input type="text" name="lapizzeria_telefono" value="<?php echo esc_attr( get_option( 'lapizzeria_telefono' ) ); ?>" />
-                </td>
-              </tr>
-            </table>
-            <h2>Google Maps</h2>
-            <?php
-              settings_fields( 'lapizzeria_opciones_googlemaps' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
-              do_settings_sections( 'lapizzeria_opciones_googlemaps' );  # Le indicamos a WordPress que utilice los campos del grupo
-            ?>
-            <table class="form-table">
-              <tr valign="top">
-                <th scope="row">Latitud</th>
-                <td>
-                  <input type="text" name="lapizzeria_googlemaps_latitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_latitud' ) ); ?>" />
-                </td>
-              </tr>
-              <tr valign="top">
-                <th scope="row">Longitud</th>
-                <td>
-                  <input type="text" name="lapizzeria_googlemaps_longitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_longitud' ) ); ?>" />
-                </td>
-              </tr>
-              <tr valign="top">
-                <th scope="row">Zoom</th>
-                <td>
-                  <input type="number" name="lapizzeria_googlemaps_zoom" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_zoom' ) ); ?>" />
-                </td>
-              </tr>
-              <tr valign="top">
-                <th scope="row">API Key (Google Maps)</th>
-                <td>
-                  <input type="text" name="lapizzeria_googlemaps_apikey" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_apikey' ) ); ?>" />
-                </td>
-              </tr>
-            </table>
+            <?php # var_dump( $active_tab ); ?>
+            
+            <?php if( $active_tab == 'site' ) : ?>
+              <h2>Sitio</h2>
+              <?php
+                settings_fields( 'lapizzeria_opciones_grupo' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
+                do_settings_sections( 'lapizzeria_opciones_grupo' );  # Le indicamos a WordPress que utilice los campos del grupo
+              ?>
+              <table id="site" class="form-table">
+                <tr valign="top">
+                  <th scope="row">Dirección</th>
+                  <td>
+                    <input type="text" name="lapizzeria_direccion" value="<?php echo esc_attr( get_option( 'lapizzeria_direccion' ) ); ?>" />
+                  </td>
+                </tr>
+                <tr valign="top">
+                  <th scope="row">Teléfono</th>
+                  <td>
+                    <input type="text" name="lapizzeria_telefono" value="<?php echo esc_attr( get_option( 'lapizzeria_telefono' ) ); ?>" />
+                  </td>
+                </tr>
+              </table>    <!-- #site -->
+
+            <?php else: ?>
+
+              <h2>Google Maps</h2>
+              <?php
+                settings_fields( 'lapizzeria_opciones_googlemaps' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
+                do_settings_sections( 'lapizzeria_opciones_googlemaps' );  # Le indicamos a WordPress que utilice los campos del grupo
+              ?>
+              <table id="google-maps" class="form-table">
+                <tr valign="top">
+                  <th scope="row">Latitud</th>
+                  <td>
+                    <input type="text" name="lapizzeria_googlemaps_latitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_latitud' ) ); ?>" />
+                  </td>
+                </tr>
+                <tr valign="top">
+                  <th scope="row">Longitud</th>
+                  <td>
+                    <input type="text" name="lapizzeria_googlemaps_longitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_longitud' ) ); ?>" />
+                  </td>
+                </tr>
+                <tr valign="top">
+                  <th scope="row">Zoom</th>
+                  <td>
+                    <input type="number" name="lapizzeria_googlemaps_zoom" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_zoom' ) ); ?>" />
+                  </td>
+                </tr>
+                <tr valign="top">
+                  <th scope="row">API Key (Google Maps)</th>
+                  <td>
+                    <input type="text" name="lapizzeria_googlemaps_apikey" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_apikey' ) ); ?>" />
+                  </td>
+                </tr>
+              </table>  <!-- #google-maps -->
+
+            <?php endif; ?>
 
             <?php submit_button(); ?>
           </form>
