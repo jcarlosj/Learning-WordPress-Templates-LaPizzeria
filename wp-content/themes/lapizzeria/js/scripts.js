@@ -26,15 +26,20 @@ $( document ) .ready( function() {
       /* Ajusta Mapa */
       var map = $( '#location-map' );
       if( map .length > 0 ) {   /* Si existe el mapa */
-        /* Miramos la altura que tiene el TAG de la sección "Localización y Reservas" */
-        var elementSection = $( '.location-and-reservation' );
-        var heightElementSection = elementSection .height();
-        console .log( 'Altura ' + heightElementSection );
-        /* Le indicamos al mapa que debe tener la misma altura del elemento de la sección */
-        map .css({ 'height' : heightElementSection+'px' });
+        if( $( document ) .width() >= breakpoint ) {
+          /* Other Devices */
+          adjustMap( 0 );    /* Se ajusta el Mapa cada que se hace un resize */
+        }
+        else {
+          /* Mobile First */
+          adjustMap( 400 );
+        }
+
       }
 
-      /* console .log( $( document ) .width() + ' px'); */
+      /* Ajusta El menú de navegación
+         console .log( $( document ) .width() + ' px');
+      */
       if( $( document ) .width() >= breakpoint ) {
         $( 'nav.site-menu' ) .show();
       }
@@ -44,16 +49,24 @@ $( document ) .ready( function() {
 
     });   // $( window )
 
-    /* Fluidbox */
-    jQuery( '.gallery a' ) .each( function() {
-      jQuery( this ) .attr({'data-fluidbox': ''});
-    });
+    /* Función para ajustar el Mapa */
+    function adjustMap( heightMap ) {
+      var heightElementSection = 0;
+      if( heightMap == 0 ) {
+        /* Miramos la altura que tiene el TAG de la sección "Localización y Reservas" */
+        var elementSection = $( '.location-and-reservation' );
+        heightElementSection = elementSection .height();
 
-    if( jQuery( '[data-fluidbox]' ) .length > 0 ) {
-      jQuery( '[data-fluidbox]' ) .fluidbox();
+      }
+      else {
+        heightElementSection = heightMap;
+      }
+      console .log( 'Altura ' + heightElementSection );
+      /* Le indicamos al mapa que debe tener la misma altura del elemento de la sección */
+      $( '#location-map' ) .css({ 'height' : heightElementSection + 'px' });
     }
 
-    /* Funci[on para ajustar las cajas] */
+    /* Función para ajustar las cajas */
     function adjustBoxes() {
       /* Ajustar las cajas de información adicional de la página de nosotros */
       var images = $( '.box-image' );   /* Obtenemos todas las imagenes del DOM */
@@ -72,4 +85,14 @@ $( document ) .ready( function() {
         });
       }
     }
+
+    /* Fluidbox */
+    jQuery( '.gallery a' ) .each( function() {
+      jQuery( this ) .attr({'data-fluidbox': ''});
+    });
+
+    if( jQuery( '[data-fluidbox]' ) .length > 0 ) {
+      jQuery( '[data-fluidbox]' ) .fluidbox();
+    }
+
 });   // $( document )
