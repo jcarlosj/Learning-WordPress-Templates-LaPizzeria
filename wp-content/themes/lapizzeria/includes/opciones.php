@@ -38,6 +38,23 @@
       'lapizzeria_opciones_grupo',    # Nombre con el que se agrupa cada campo
       'lapizzeria_telefono'           # Nombre del campo del formulario
     );
+
+    register_setting(
+      'lapizzeria_opciones_googlemaps',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_googlemaps_latitud'      # Nombre del campo del formulario
+    );
+    register_setting(
+      'lapizzeria_opciones_googlemaps',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_googlemaps_longitud'     # Nombre del campo del formulario
+    );
+    register_setting(
+      'lapizzeria_opciones_googlemaps',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_googlemaps_zoom'         # Nombre del campo del formulario
+    );
+    register_setting(
+      'lapizzeria_opciones_googlemaps',    # Nombre con el que se agrupa cada campo
+      'lapizzeria_googlemaps_apikey'       # Nombre del campo del formulario
+    );
   }
 
   /* Crea página de Administración para los ajustes */
@@ -50,6 +67,7 @@
           <h1>Ajustes "La Pizzería"</h1>
 
           <form action="options.php" method="post">
+            <h2>Sitio</h2>
             <?php
               settings_fields( 'lapizzeria_opciones_grupo' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
               do_settings_sections( 'lapizzeria_opciones_grupo' );  # Le indicamos a WordPress que utilice los campos del grupo
@@ -65,6 +83,37 @@
                 <th scope="row">Teléfono</th>
                 <td>
                   <input type="text" name="lapizzeria_telefono" value="<?php echo esc_attr( get_option( 'lapizzeria_telefono' ) ); ?>" />
+                </td>
+              </tr>
+            </table>
+            <h2>Google Maps</h2>
+            <?php
+              settings_fields( 'lapizzeria_opciones_googlemaps' );       # Le indicamos al formulario cual es el grupo de campos que va a usar
+              do_settings_sections( 'lapizzeria_opciones_googlemaps' );  # Le indicamos a WordPress que utilice los campos del grupo
+            ?>
+            <table class="form-table">
+              <tr valign="top">
+                <th scope="row">Latitud</th>
+                <td>
+                  <input type="text" name="lapizzeria_googlemaps_latitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_latitud' ) ); ?>" />
+                </td>
+              </tr>
+              <tr valign="top">
+                <th scope="row">Longitud</th>
+                <td>
+                  <input type="text" name="lapizzeria_googlemaps_longitud" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_longitud' ) ); ?>" />
+                </td>
+              </tr>
+              <tr valign="top">
+                <th scope="row">Zoom</th>
+                <td>
+                  <input type="number" name="lapizzeria_googlemaps_zoom" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_zoom' ) ); ?>" />
+                </td>
+              </tr>
+              <tr valign="top">
+                <th scope="row">API Key (Google Maps)</th>
+                <td>
+                  <input type="text" name="lapizzeria_googlemaps_apikey" value="<?php echo esc_attr( get_option( 'lapizzeria_googlemaps_apikey' ) ); ?>" />
                 </td>
               </tr>
             </table>
