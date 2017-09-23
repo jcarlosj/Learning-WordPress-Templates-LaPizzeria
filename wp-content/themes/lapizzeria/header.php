@@ -5,9 +5,14 @@
     <title>La Pizzería</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Agregamos compatilibidad para WebApp de iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- Agrega el soporte para iOS -->
     <meta name="apple-mobile-web-app-title" content="La Pizzería" />
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/apple-touch-icon.jpg" />
+    <!-- Agregamos compatilibidad para WebApp de Android -->
+    <meta name="mobile-web-app-capable" content="yes" /> <!-- Agrega el soporte para Android -->
+    <meta name="theme-color" content="#A61206" />
+    <meta name="application-name" content="La Pizzería" />
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/android-icon.png" sizes="180x180" />
     <?php
       /* Esta función "wp_head()" de WP llama las funciones agregadas a la plantilla.
          En nuestro caso la acción "wp_enqueue_scripts"  */
