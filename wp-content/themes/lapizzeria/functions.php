@@ -47,11 +47,18 @@
       array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
       '1.0'                                         # Versión de la hoja de estilos
     );
+    wp_register_style(
+      'datetime-local',                             # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/css/datetime-local-polyfill.css',  # Ruta del fichero en el directorio CSS de la plantilla
+      array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '1.0'                                         # Versión de la hoja de estilos
+    );
     /* Agregamos el  estilo registrado */
     wp_enqueue_style( 'normalize' );
     wp_enqueue_style( 'fontawesome' );
     wp_enqueue_style( 'fluidbox_css' );
     wp_enqueue_style( 'style' );
+    wp_enqueue_style( 'datetime-local' );
   }
 
   /* Agrega las acciones creadas al Core de WordPress:
@@ -92,10 +99,31 @@
       'V3',                                         # Versión del Script
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
     );
+    wp_register_script(
+      'datetime-local-polyfill',                    # Nombre que toma la función registrada en el Core de Wordpress
+      get_template_directory_uri() . '/js/datetime-local-polyfill.min.js',  # Ruta del fichero en el directorio JS de la plantilla
+      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '2.0.5',                                      # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
+    wp_register_script(
+      'modernizr',                                  # Nombre que toma la función registrada en el Core de Wordpress
+      'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js',  # Ruta del fichero en el directorio JS de la plantilla
+      array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+      '2.8.3',                                      # Versión del Script
+      true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+    );
+
 
     /* Agregamos el los ficheros script registrados */
     wp_enqueue_script( 'jquery' );                  # Agregamos la versión de Bootstrap que trae WordPress
-                                                    # También puede hacerse de la forma tradicional descargando el fichero de bootstrap
+                                                    # También puede hacerse de la forma tradicional descargando el fichero de jQuery
+    wp_enqueue_script( 'jquery-ui-core' );          # Agregamos la versión de Bootstrap que trae WordPress
+                                                    # También puede hacerse de la forma tradicional descargando el fichero de jQueryUI
+    wp_enqueue_script( 'jquery-ui-datepicker' );    # Agregamos el componente que vamos a ocupar (que vamos autilizar)
+
+    wp_enqueue_script( 'datetime-local-polyfill' );
+    wp_enqueue_script( 'modernizr' );
     wp_enqueue_script( 'scripts' );
     wp_enqueue_script( 'fluidbox-jquery-throttle-debounce-plugin' );
     wp_enqueue_script( 'fluidbox' );
