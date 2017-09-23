@@ -719,7 +719,8 @@ form.reservation h2 {
 }
 form.reservation .field {
   margin-bottom: 20px;
-  width: 100%
+  width: 100%;
+  position: relative;
 }
 form.reservation .field input,
 form.reservation .field textarea {
@@ -908,6 +909,7 @@ section.location-and-reservation {
   /* IE 10+ */
   color: #FFFFFF;
 }
+.home form.reservation input,
 .home form.reservation input[ type = 'datetime-local' ] {
   /* Input tipo date */
   color: #FFFFFF;
@@ -921,4 +923,43 @@ section.location-and-reservation {
 /* Mapa */
 section.location-and-reservation #location-map {
   height: 777px;
+}
+
+/* Polyfill datetime-local */
+span button.datetime-local-datepicker-button {
+  background-color: #A61206;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  color: #FFFFFF;
+}
+
+span table.ui-date-picker-calendar {
+  width: 100%;
+}
+table.ui-datepicker-calendar a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a.ui-datepicker-next {
+  float: right;
+}
+
+div.ui-widget-header .ui-corner-all {
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+div.ui-datepicker-title {
+  color: #333333;
+  margin: 10px 0;
+  text-align: center;
+}
+
+span div.datetime-local-calendar-dialog.datetime-local-open {
+  background-color: #E1E1E1;
+  padding: 20px;
+  width: 220px;
 }
