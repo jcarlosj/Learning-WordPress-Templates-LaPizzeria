@@ -93,3 +93,10 @@ div.datetime-local-spin-btn-down:active:before {
 
 div.datetime-local-calendar-dialog {
   z-index: 100; }
+
+/* Agrega estilos al Polyfill que no se afectan desde la hoja de estilos principal del TEMA */
+div.datetime-local-spin-btn-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
