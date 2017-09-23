@@ -261,4 +261,187 @@ function lapizzeria_widgets() {
 }
 add_action( 'widgets_init', 'lapizzeria_widgets' );
 
+/* ACF - Advanced Custom Fields
+   Exportamos todos los campos creados con el plugin ACF de manera que queden integrados (incluidos) a la plantilla
+*/
+
+/* Para eliminar todas las interfaces visuales del complemento ACF, puede utilizar una constante para habilitar el modo lite. */
+define( 'ACF_LITE', true );
+
+# Movemos el directorio del pluging hacía el interior de la plantilla y hacemos el llamado al mismo.
+include_once( 'includes/advanced-custom-fields/acf.php' );
+
+/* Agregamos el código GENERADO por Custom Fields */
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_especialidades',
+		'title' => 'Especialidades',
+		'fields' => array (
+			array (
+				'key' => 'field_59b01952a80e1',
+				'label' => 'Precio',
+				'name' => 'precio',
+				'type' => 'text',
+				'instructions' => 'Añada el precio del platillo',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'especialidades',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_inicio',
+		'title' => 'Inicio',
+		'fields' => array (
+			array (
+				'key' => 'field_59c142ab3abe9',
+				'label' => 'Contenido',
+				'name' => 'contenido',
+				'type' => 'wysiwyg',
+				'instructions' => 'Agregue la descripción destacada',
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+			array (
+				'key' => 'field_59c142e03abea',
+				'label' => 'Imagen',
+				'name' => 'imagen',
+				'type' => 'image',
+				'instructions' => 'Agregue la imagen destacada',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '2',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_nosotros',
+		'title' => 'Nosotros',
+		'fields' => array (
+			array (
+				'key' => 'field_59adaaf8bb9e5',
+				'label' => 'Imagen 1',
+				'name' => 'imagen_1',
+				'type' => 'image',
+				'instructions' => 'Suba una imagen',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_59adac1bbb9e8',
+				'label' => 'Descripcion 1',
+				'name' => 'descripcion_1',
+				'type' => 'wysiwyg',
+				'instructions' => 'Agrega aquí la descripción',
+				'required' => 1,
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+			array (
+				'key' => 'field_59adabefbb9e6',
+				'label' => 'Imagen 2',
+				'name' => 'imagen_2',
+				'type' => 'image',
+				'instructions' => 'Suba una imagen',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_59adac6dbb9e9',
+				'label' => 'Descripcion 2',
+				'name' => 'descripcion_2',
+				'type' => 'wysiwyg',
+				'instructions' => 'Agrega aquí la descripción',
+				'required' => 1,
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+			array (
+				'key' => 'field_59adabfdbb9e7',
+				'label' => 'Imagen 3',
+				'name' => 'imagen_3',
+				'type' => 'image',
+				'instructions' => 'Suba una imagen',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_59adac7cbb9ea',
+				'label' => 'Descripcion 3',
+				'name' => 'descripcion_3',
+				'type' => 'wysiwyg',
+				'instructions' => 'Agrega aquí la descripción',
+				'required' => 1,
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '6',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
 ?>
