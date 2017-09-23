@@ -59,6 +59,10 @@
   add_action( 'wp_enqueue_scripts', 'lapizzeria_styles' );
 
   function lapizzeria_scripts() {
+    /* Obtenemos el API Key del formulario de ajustes en la página 'ajustes' creada en el ADMIN (La Pizzería Ajustes)
+      para la configuración de Google Maps */
+    $APIKey = esc_html( get_option( 'lapizzeria_googlemaps_apikey' ) );
+
     /* Registra los archivos de script (JavaScript) en el Core de Wordpress */
     wp_register_script(
       'scripts',                                    # Nombre que toma la función registrada en el Core de Wordpress
@@ -83,7 +87,7 @@
     );
     wp_register_script(
       'google-maps',                                # Nombre que toma la función registrada en el Core de Wordpress (handle)
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyAg1Z4cnIMEvFo5e8ASJYt2tVO_zEFt-vE&callback=initMap',  # Ruta del fichero en el directorio JS de la plantilla
+      'https://maps.googleapis.com/maps/api/js?key=' .$APIKey.  '&callback=initMap',  # Ruta del fichero en el directorio JS de la plantilla
       array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
       'V3',                                         # Versión del Script
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
@@ -99,7 +103,7 @@
 
   }
 
-  /* Agrega las propiedades "Async" y "Defer" al tag script que implementa la API de Google Maps en la vista 
+  /* Agrega las propiedades "Async" y "Defer" al tag script que implementa la API de Google Maps en la vista
      Necesarios para la implementación de Mapas con la API de Google Maps
      $tag y $handle son de WordPress
   */
