@@ -1,16 +1,18 @@
 /* JavaScript File */
 
+console .log( googlemaps_data );  /* Verificamos que los valores han pasado de PHP a JavaScript como un Objeto */
+
 /* Implementación del Mapa usando la API de Google Maps V3 */
 var map;
 function initMap() {
   /* Creamos un objeto con las coordenadas donde deseamos visualizar el Mapa */
   var latLng = {
-    lat: 4.653548,
-    lng: -74.072510
+    lat: parseFloat( googlemaps_data .latitude ),
+    lng: parseFloat( googlemaps_data .longitude )
   };
   map = new google.maps.Map(document.getElementById( 'location-map' ), {
     center: latLng,
-    zoom: 14
+    zoom: parseInt( googlemaps_data .zoom )
   });
   /* Agregamos el Pin al Mapa */
   var marker = new google .maps .Marker({

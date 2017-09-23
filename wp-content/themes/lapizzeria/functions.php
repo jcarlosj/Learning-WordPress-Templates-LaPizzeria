@@ -60,7 +60,7 @@
 
   function lapizzeria_scripts() {
     /* Obtenemos el API Key del formulario de ajustes en la página 'ajustes' creada en el ADMIN (La Pizzería Ajustes)
-      para la configuración de Google Maps */
+       para la configuración de Google Maps */
     $APIKey = esc_html( get_option( 'lapizzeria_googlemaps_apikey' ) );
 
     /* Registra los archivos de script (JavaScript) en el Core de Wordpress */
@@ -100,6 +100,22 @@
     wp_enqueue_script( 'fluidbox-jquery-throttle-debounce-plugin' );
     wp_enqueue_script( 'fluidbox' );
     wp_enqueue_script( 'google-maps' );
+
+    /* Pasamos los valores de las variables PHP al JavaScript donde se ajusta la: latitud, longitud y zoom del mapa
+      desde la configuración del formulario de ajustes en la página 'ajustes' creada en el ADMIN (La Pizzería Ajustes)
+      para la configuración de Google Maps */
+
+      # Función de  WordPress diseñada para hacer TEMAS compatibles en diferentes lenguajes
+      # En la actualidad se usa mucho para pasar variables de PHP a JavaScript
+      wp_localize_script(
+        'scripts',            # Nombre del Script que se desea encontrar para pasarle los datos en nuestro caso "scripts.js"
+        'googlemaps_data',    # Pasamos el nombre (del Objeto) al que tenemos que hacer la referencia (Se puede usar cualquier nombre)
+        array(                # Array que contienen las diferentes opciones que vamos a pasar
+          'latitude'  => get_option( 'lapizzeria_googlemaps_latitud' ),     # Valor de la Latitud desde el Formulario Ajustes
+          'longitude' => get_option( 'lapizzeria_googlemaps_longitud' ),    # Valor de la Longitud desde el Formulario Ajustes
+          'zoom'      => get_option( 'lapizzeria_googlemaps_zoom' )         # Valor del Zoom desde el Formulario Ajustes
+        )
+      );
 
   }
 
