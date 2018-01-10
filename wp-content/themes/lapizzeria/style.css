@@ -394,58 +394,22 @@ div.principal {
 
 /* Page: Nosotros
  * ------------ */
-div.boxes-information > div {
-  text-align: center;
-  width: 100%;
-  color: white;
-}
-div.boxes-information > div img {
-  display: block;
-  width: 100%;
-}
-div.boxes-information > div:nth-child( 1 ) {
-  background-color: #F19F30;
-}
-div.boxes-information > div:nth-child( 2 ) {
-  background-color: #127427;
-}
-div.boxes-information > div:nth-child( 3 ) {
-  background-color: #A61206;
+div.boxes-information {
+  display: grid;
 }
 
-div.box-content {
-  padding: 20px, 5px, 5px, 5px;
-}
-@media only screen and ( min-width: 992px ) {
-  div.box-content {
-    padding: 50px 0;
-  }
-}
-div.box-content h3 {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 20px;
+div.boxes-information .box {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
 }
 
-@media only screen and ( min-width: 992px ) {
-  div.box-content h3 {
-    font-size: 24px;
-  }
-}
-
-@media only screen and ( min-width: 480px ) {
-  div.boxes-information > div {
-    width: 50%;
-    float: left;
-  }
-  div.boxes-information > div:last-child {
-    width: 100%;
-  }
-}
 @media only screen and ( min-width: 768px ) {
-  div.boxes-information > div,
-  div.boxes-information > div:last-child {
-    width: 33.3%;
+  div.boxes-information {
+    grid-template-columns: repeat( 3, 1fr );   /* ó grid-template-columns: 1fr 1fr 1fr; */
+  }
+  div.boxes-information .box {
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 1fr; 
   }
 }
 
