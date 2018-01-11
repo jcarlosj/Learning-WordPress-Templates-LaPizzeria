@@ -307,6 +307,34 @@ nav.site-menu ul li.current_page_parent a {     /* Resalta item de menú Blog: C
   }
 }
 
+/* Estilos para sub-menu */
+nav.site-menu ul li.menu-item-has-children:hover ul {
+  background-color: white;
+}
+nav.site-menu ul li.menu-item-has-children ul.sub-menu li a {
+  border-bottom: none;
+}
+
+@media only screen and ( min-width: 992px ) {
+  /* Estilos para sub-menu */
+  nav.site-menu ul li.menu-item-has-children {
+    position: relative;
+  }
+  nav.site-menu ul li.menu-item-has-children ul.sub-menu {
+    display: none;
+  }
+  nav.site-menu ul li.menu-item-has-children:hover ul.sub-menu {
+    background-color: white;
+    display: block;
+    position: absolute;  /* Evita que se monte */
+    z-index: 100;        /* Trae el menú frente de todo */
+  }
+  nav.site-menu ul li.menu-item-has-children:hover ul.sub-menu li {
+    display: block;
+    width: 100%;
+  }
+}
+
 /* Responsive Web Design - Main Site Menu
  * ------------ */
 @media only screen and ( min-width: 768px ) {
