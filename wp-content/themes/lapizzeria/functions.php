@@ -192,7 +192,7 @@
   */
   function lapizzeria_setup() {
     add_theme_support( 'post-thumbnails' );    # Habilitamos las imágenes destacadas
-    add_theme_support( 'custom-logo' );        # Habilitamos la personalización del logotipo del site 
+
     /* Personalizamos un nuevo tamaño de imagen para la página de nosotros adicional a los que
        podemos encontrar en el ADMIN en la sección de Medios en Ajustes multimedia.
        Si las imagenes ya han sido subidas estos cambios no se les van a aplicar, por lo que
@@ -227,6 +227,19 @@
 
   /* Agregamos la función que nos permitirá integrar imagenes destacadas al contenido */
   add_action( 'after_setup_theme', 'lapizzeria_setup' );
+
+
+  /* Función para la personalización detallada del logo del sitio */
+  function lapizzeria_custom_logo() {
+    /* Dimensiones estandar para el logo */
+    $size_logo = array(
+      'width'  => 280,
+      'height' => 220
+    );
+    add_theme_support( 'custom-logo', $size_logo );        # Habilitamos la personalización del logotipo del site
+  }
+  /* Agregamos la función que nos permitirá agregar la funcionalidad de personalizar el logo del sitio (subiendo una imagen) */
+  add_action( 'after_setup_theme', 'lapizzeria_custom_logo' );
 
   /* Custom Post Type:
      En WordPress existen 5 tipos de "Custom Post Types" por defecto: Entradas, Medios, Páginas, Menues y Comentarios
