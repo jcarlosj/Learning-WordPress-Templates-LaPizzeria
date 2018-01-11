@@ -192,7 +192,7 @@
   */
   function lapizzeria_setup() {
     add_theme_support( 'post-thumbnails' );    # Habilitamos las imágenes destacadas
-
+    add_theme_support( 'title-tag' );          # Agrega títulos dinámicos de las páginas (Pestañas y Barra de página del navegador, contribuye al SEO)
     /* Personalizamos un nuevo tamaño de imagen para la página de nosotros adicional a los que
        podemos encontrar en el ADMIN en la sección de Medios en Ajustes multimedia.
        Si las imagenes ya han sido subidas estos cambios no se les van a aplicar, por lo que
