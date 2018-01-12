@@ -147,6 +147,21 @@
 
   }
 
+  /* Agrega las acciones creadas al Core de WordPress:
+     Ayuda a que estas sean reconocidas */
+  function lapizzeria_admin_scripts () {
+      /* Agrega archivos JS de las acciones relevantes al CRUD de Reservaciones en el BackEnd de WordPress (Ajax) */
+      wp_enqueue_script(
+        'admin-ajax-js',                                    # Nombre que toma la función registrada en el Core de Wordpress
+        get_template_directory_uri(). '/js/admin-ajax.js',  # Ruta del fichero en el directorio JS para esta acción
+        array( 'jquery' ),                                  # Dependencias (ficheros que deseamos que se carguen antes, por ahora 'jquery' necesaria para que funcione nuestro nuevo fichero)
+        1.0,                                                # Versión del Script
+        true                                                # Indica que carguen en el Footer (al final del documento que contiene el tema)
+      );
+  }
+  /* Agrega las acciones creadas a la zona de administración de WordPress */
+  add_action( 'admin_enqueue_scripts', 'lapizzeria_admin_scripts' );
+
   /* Agrega las propiedades "Async" y "Defer" al tag script que implementa la API de Google Maps en la vista
      Necesarios para la implementación de Mapas con la API de Google Maps
      $tag y $handle son de WordPress

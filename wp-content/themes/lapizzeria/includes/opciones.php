@@ -80,7 +80,7 @@
 
           <form action="options.php" method="post">
             <?php # var_dump( $active_tab ); ?>
-            
+
             <?php if( $active_tab == 'site' ) : ?>
               <h2>Sitio</h2>
               <?php
@@ -159,6 +159,7 @@
                 <th class="manage-column">Correo del cliente</th>
                 <th class="manage-column">Teléfono del cliente</th>
                 <th class="manage-column">Mensaje</th>
+                <th class="manage-column">Opciones</th>
               </tr>
             </thead>
             <tbody>
@@ -182,12 +183,15 @@
                 foreach ( $rows as $key => $row ) :
               ?>
                   <tr>
-                    <td class=""><?php echo $row[ 'id' ]?></td>
-                    <td class=""><?php echo $row[ 'nombre' ]?></td>
-                    <td class=""><abbr title="<?php echo $row[ 'fecha' ]?>"><?php echo $row[ 'fecha' ]?></abbr></td>
-                    <td class=""><?php echo $row[ 'correo' ]?></td>
-                    <td class=""><?php echo $row[ 'telefono' ]?></td>
-                    <td class=""><?php echo $row[ 'mensaje' ]?></td>
+                    <td class=""><?php echo $row[ 'id' ]; ?></td>
+                    <td class=""><?php echo $row[ 'nombre' ]; ?></td>
+                    <td class=""><abbr title="<?php echo $row[ 'fecha' ]; ?>"><?php echo $row[ 'fecha' ]?></abbr></td>
+                    <td class=""><?php echo $row[ 'correo' ]; ?></td>
+                    <td class=""><?php echo $row[ 'telefono' ]; ?></td>
+                    <td class=""><?php echo $row[ 'mensaje' ]; ?></td>
+                    <td class="">
+                      <a href="#" class="delete-register" data-reservations="<?php echo $row[ 'id' ]; ?>">Eliminar</a>
+                    </td>
                   </tr>
               <?php
                 endforeach;
@@ -201,6 +205,7 @@
                 <th class="manage-column">Correo del cliente</th>
                 <th class="manage-column">Teléfono del cliente</th>
                 <th class="manage-column">Mensaje</th>
+                <th class="manage-column">Opciones</th>
               </tr>
             </tfoot>
           </table>
