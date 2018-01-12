@@ -2,6 +2,7 @@
 $ = jQuery .noConflict();
 
 $( document ) .ready( function() {
+
   /* Obtener la URL de admin-ajax.php */
   //console .log( delete_reservation .ajax_url );     /* 'delete_reservation' retorna el objeto JS generado en el 'function.php' */
 
@@ -29,7 +30,13 @@ $( document ) .ready( function() {
         if( result .respuesta == 1 ) {
           /* Buscamos el objeto del DOM que deseamos remover */
           $( '[data-reservations="' + result .id + '"]' ) .parent() .parent() .remove();
-          alert( 'Se ha eliminado la reservación' );
+
+          /* Despliega mensaje emergente SweetAlert 2 */
+          swal(
+            'Reserva Eliminada',
+            'Se eliminó el registro correctamente!',
+            'success'       /* Define el tipo de Alerta en SweetAlert 2 */
+          );
         }
 
       }

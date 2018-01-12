@@ -53,6 +53,7 @@
       array( 'normalize' ),                         # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
       '1.0'                                         # Versión de la hoja de estilos
     );
+
     /* Agregamos el  estilo registrado */
     wp_enqueue_style( 'normalize' );
     wp_enqueue_style( 'fontawesome' );
@@ -114,7 +115,6 @@
       true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
     );
 
-
     /* Agregamos el los ficheros script registrados */
     wp_enqueue_script( 'jquery' );                  # Agregamos la versión de Bootstrap que trae WordPress
                                                     # También puede hacerse de la forma tradicional descargando el fichero de jQuery
@@ -150,6 +150,20 @@
   /* Agrega las acciones creadas al Core de WordPress:
      Ayuda a que estas sean reconocidas */
   function lapizzeria_admin_scripts () {
+
+      /* Implementa hoja de estilos y scripts de SweetAlert 2 (Backend WordPress) */
+      wp_enqueue_style(
+        'sweetalert2_css',                             # Nombre que toma la función registrada en el Core de Wordpress
+        get_template_directory_uri() . '/css/sweetalert2.min.css'  # Ruta del fichero en el directorio CSS de la plantilla
+      );
+      wp_enqueue_script(
+        'sweetalert2_js',                              # Nombre que toma la función registrada en el Core de Wordpress
+        get_template_directory_uri() . '/js/sweetalert2.min.js',  # Ruta del fichero en el directorio JS de la plantilla
+        array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+        '2.8.3',                                      # Versión del Script
+        true
+      );
+
       /* Agrega archivos JS de las acciones relevantes al CRUD de Reservaciones en el BackEnd de WordPress (Ajax) */
       wp_enqueue_script(
         'admin-ajax-js',                                    # Nombre que toma la función registrada en el Core de Wordpress
