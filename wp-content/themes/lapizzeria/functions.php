@@ -158,6 +158,17 @@
         1.0,                                                # Versión del Script
         true                                                # Indica que carguen en el Footer (al final del documento que contiene el tema)
       );
+
+      # Función de  WordPress diseñada para hacer TEMAS compatibles en diferentes lenguajes
+      # En la actualidad se usa mucho para pasar variables de PHP a JavaScript
+      # Vamos a Pasar la URL de WP Ajax al admin-ajax-js
+      wp_localize_script(
+        'admin-ajax-js',          # Nombre del Script que se desea encontrar para pasarle los datos en nuestro caso "scripts.js"
+        'delete_reservation',     # Pasamos el nombre (del Objeto) al que tenemos que hacer la referencia (Se puede usar cualquier nombre)
+        array(                    # Array que contienen las diferentes opciones que vamos a pasar
+          'ajax_url'  => admin_url( 'admin-ajax.php' )   # admin_url() -> devuelve wp-admin/ | admin_url( 'admin-ajax.php' ) -> devuelve wp-admin/admin-ajax.php
+        )
+      );
   }
   /* Agrega las acciones creadas a la zona de administración de WordPress */
   add_action( 'admin_enqueue_scripts', 'lapizzeria_admin_scripts' );

@@ -2,5 +2,6 @@
 $ = jQuery .noConflict();
 
 $( document ) .ready( function() {
-  alert( 'Script para Ajax te saluda :P' );
+  /* Obtener la URL de admin-ajax.php */
+  console .log( delete_reservation .ajax_url );     /* 'delete_reservation' retorna el objeto JS generado en el 'function.php' */
 });
