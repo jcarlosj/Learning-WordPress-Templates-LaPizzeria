@@ -23,6 +23,15 @@ $( document ) .ready( function() {
       url: delete_reservation .ajax_url,      /* URL del archivo PHP que va a ejecutar la acción (que se va a encargar de esta petición AJAX) */
       success : function( data ) {            /* Se ejecutará cuando la petición al archivo de AJAX sea correcta */
         console .log( data );                 /* Datos que recibimos como respuesta en un objeto JSON */
+
+        var result = JSON .parse( data );     /* Convierte el String JSON a un Objeto JavaScript */
+
+        if( result .respuesta == 1 ) {
+          /* Buscamos el objeto del DOM que deseamos remover */
+          $( '[data-reservations="' + result .id + '"]' ) .parent() .parent() .remove();
+          alert( 'Se ha eliminado la reservación' );
+        }
+
       }
     });
 
