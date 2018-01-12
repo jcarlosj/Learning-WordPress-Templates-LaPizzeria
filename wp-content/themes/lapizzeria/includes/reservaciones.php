@@ -56,9 +56,9 @@
 
   /* Evento Guardar */
   function lapizzeria_delete() {
-    echo 'Elimina registro!';
 
-    die();      # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
+    die( json_encode( $_POST ) );      # Todo lo que se reciba por POST se devuelve como un objeto JSON
+                                       # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
   }
   /* Agrega las acciones creadas a la zona de administración de WordPress */
   add_action(

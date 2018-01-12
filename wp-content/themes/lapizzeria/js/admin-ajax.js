@@ -22,7 +22,7 @@ $( document ) .ready( function() {
       },
       url: delete_reservation .ajax_url,      /* URL del archivo PHP que va a ejecutar la acción (que se va a encargar de esta petición AJAX) */
       success : function( data ) {            /* Se ejecutará cuando la petición al archivo de AJAX sea correcta */
-        console .log( data + ' ' + id );
+        console .log( data );                 /* Datos que recibimos como respuesta en un objeto JSON */
       }
     });
 
