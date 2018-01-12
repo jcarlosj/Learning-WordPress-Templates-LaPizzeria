@@ -61,12 +61,44 @@
     if( isset( $_POST[ 'tipo_registro' ] ) ) {
       /* Valida que el tipo de registro es Eliminar */
       if( $_POST[ 'tipo_registro' ] == 'eliminar' ) {
-        echo 'Enviado para eliminar!';
+
+        # Clase de WordPress para crear tablas personalizadas y consultas en la Base de Datos (Funciones de CRUD de WordPress)
+        global $wpdb;
+
+        $name_table = $wpdb -> prefix .'reservaciones'; # Prefijo de la tabla fijado en la configuración inicial
+        $registration_id = $_POST[ 'id' ];
+
+        /* Elimina */
+        $response = $wpdb -> delete(
+          $name_table,        # Nombre de la tabla (Obligatorio)
+          array(              # WHERE de la consulta (Obligatorio)
+            'id' => $registration_id    # ID del registro a eliminar
+          ),
+          array(              # Tipo de dato (Opcional)
+            '%d'              # El tipo de dato que se esta pasando en el WHERE es un número decimal
+          )
+        );
+
+        /* Prepara mensajes de resuesta */
+        if( $response == 1 ) {
+          $response = array(
+            'respuesta' => 1,
+            'id'        => $registration_id
+          );
+        }
+        else {
+          $response = array(
+            'respuesta' => 'error'
+          );
+        }
+
       }
     }
 
-    die( json_encode( $_POST ) );      # Todo lo que se reciba por POST se devuelve como un objeto JSON
-                                       # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
+    # TO DO: Falta elimnar registro en la vista
+
+    die( json_encode( $response ) );      # Todo lo que se reciba por POST se devuelve como un objeto JSON
+                                          # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
   }
   /* Agrega las acciones creadas a la zona de administración de WordPress */
   add_action(
