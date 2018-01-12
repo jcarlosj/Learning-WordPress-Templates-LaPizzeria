@@ -12,7 +12,7 @@ $( document ) .ready( function() {
     var id = $( this ) .attr( 'data-reservations' );  /* Obtenemos el ID del elemento en el atributo especificado */
     // console .log( id );
 
-    /**/
+    /* Crea petición AJAX */
     $.ajax({
       type: 'post',     /* Tipo de petición */
       data: {           /* El conjunto de datos que se desean enviar */

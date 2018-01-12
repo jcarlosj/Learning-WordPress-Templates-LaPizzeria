@@ -57,6 +57,14 @@
   /* Evento Guardar */
   function lapizzeria_delete() {
 
+    /* Valida que los datos llegaron por POST */
+    if( isset( $_POST[ 'tipo_registro' ] ) ) {
+      /* Valida que el tipo de registro es Eliminar */
+      if( $_POST[ 'tipo_registro' ] == 'eliminar' ) {
+        echo 'Enviado para eliminar!';
+      }
+    }
+
     die( json_encode( $_POST ) );      # Todo lo que se reciba por POST se devuelve como un objeto JSON
                                        # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
   }
