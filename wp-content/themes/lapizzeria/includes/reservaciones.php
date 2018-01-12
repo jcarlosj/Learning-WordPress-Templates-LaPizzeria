@@ -54,6 +54,19 @@
     }
   }
 
+  /* Evento Guardar */
+  function lapizzeria_delete() {
+    echo 'Elimina registro!';
+
+    die();      # Siempre debe ponerse de lo contrario no va a funcionar pues los llamados con AJAX lo requieren
+  }
+  /* Agrega las acciones creadas a la zona de administración de WordPress */
+  add_action(
+    'wp_ajax_lapizzeria_delete',  # prefijo 'wp_ajax_' y nombre de la función (así WordPress le da tratamiento de petición AJAX)
+    'lapizzeria_delete'
+  );
+
+
   /* Aplica la Sanitización de tipo 'sanitize_text_field' de WordPress */
   function lapizzeria_sanitize_text_field( $field_name ) {
     return sanitize_text_field( $_POST[ $field_name ] );
