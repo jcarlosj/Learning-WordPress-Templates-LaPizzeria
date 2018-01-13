@@ -17,6 +17,8 @@
     <textarea name="mensaje" placeholder="Mensaje" required></textarea>
   </div>
 
+  <div class="g-recaptcha" data-sitekey="6Lc6kEAUAAAAAH2iE-SgubBRIBQDpFYmHPALQ5gj"></div>
+
   <button type="submit" name="enviar" class="button">Enviar</button>
   <input type="hidden" name="save" value="1" />
 </form> <!-- form.reservation -->

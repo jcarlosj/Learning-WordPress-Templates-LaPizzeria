@@ -525,4 +525,13 @@ if(function_exists("register_field_group"))
 	));
 }
 
+# Agregar reCAPTCHA
+function lapizzeria_agregar_recaptcha() {
+  ?>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+  <?php
+}
+# Hook
+add_action( 'wp_head', 'lapizzeria_agregar_recaptcha' );
+
 ?>
